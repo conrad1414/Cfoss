@@ -1,0 +1,669 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mimi &amp; Papa's Gift Corner | Custom Gifts in Albert Lea, MN</title>
+<meta name="description" content="Exclusive customized gifts in Albert Lea, MN — custom tee shirts, hats, jewelry, slate &amp; ceramic coasters, and airbrushed fishing lures. Visit us at 114 S Broadway." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#faf3e6;
+    --cream-2:#f2e6d2;
+    --ink:#2b241c;
+    --ink-soft:#5c5142;
+    --forest:#264a3d;
+    --forest-dark:#193329;
+    --rust:#c1623c;
+    --rust-dark:#a64f2e;
+    --gold:#d9a441;
+    --line:#e3d5ba;
+    --radius:18px;
+    --shadow: 0 12px 30px -12px rgba(43,36,28,0.25);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Manrope', sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.55;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces', serif;
+    line-height:1.08;
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 24px;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:14px 28px;border-radius:999px;
+    font-weight:700;font-size:0.98rem;
+    text-decoration:none;
+    transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+    border:2px solid transparent;
+    cursor:pointer;
+  }
+  .btn-primary{background:var(--rust);color:#fff;box-shadow:0 10px 24px -10px rgba(193,98,60,0.65);}
+  .btn-primary:hover{background:var(--rust-dark);transform:translateY(-2px);}
+  .btn-ghost{background:transparent;border-color:var(--forest);color:var(--forest);}
+  .btn-ghost:hover{background:var(--forest);color:#fff;transform:translateY(-2px);}
+  .btn-light{background:#fff;color:var(--forest);}
+  .btn-light:hover{transform:translateY(-2px);box-shadow:var(--shadow);}
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(250,243,230,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 0;
+  }
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;}
+  .brand-mark{
+    width:48px;height:48px;border-radius:50%;
+    background:linear-gradient(155deg, var(--forest), var(--forest-dark));
+    display:flex;align-items:center;justify-content:center;
+    color:var(--gold);font-family:'Fraunces',serif;font-weight:700;font-size:1.3rem;
+    box-shadow:0 6px 14px -6px rgba(38,74,61,0.55);
+  }
+  .brand-text{display:flex;flex-direction:column;line-height:1.1;}
+  .brand-text .name{font-family:'Fraunces',serif;font-weight:700;font-size:1.15rem;color:var(--forest-dark);}
+  .brand-text .loc{font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-soft);}
+  nav.links{display:flex;align-items:center;gap:30px;}
+  nav.links a{text-decoration:none;font-weight:600;font-size:0.95rem;color:var(--ink);}
+  nav.links a:hover{color:var(--rust);}
+  .nav-cta{display:flex;align-items:center;gap:14px;}
+  .call-pill{
+    display:none;
+    align-items:center;gap:8px;
+    font-weight:700;font-size:0.9rem;
+    color:var(--forest-dark);
+  }
+  @media(min-width:900px){ .call-pill{display:inline-flex;} }
+  .menu-btn{display:none;background:none;border:none;cursor:pointer;padding:6px;}
+  @media(max-width:860px){
+    nav.links{display:none;}
+    .menu-btn{display:inline-flex;}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    padding:70px 0 90px;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;inset:0;
+    background:
+      radial-gradient(560px 400px at 88% -6%, rgba(217,164,65,0.28), transparent 60%),
+      radial-gradient(520px 420px at 6% 110%, rgba(38,74,61,0.16), transparent 60%);
+    pointer-events:none;
+  }
+  .hero-grid{
+    position:relative;
+    display:grid;grid-template-columns:1.05fr 0.95fr;gap:56px;align-items:center;
+  }
+  @media(max-width:900px){ .hero-grid{grid-template-columns:1fr;} }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    background:#fff;border:1px solid var(--line);
+    padding:7px 16px;border-radius:999px;
+    font-size:0.8rem;font-weight:700;letter-spacing:0.04em;
+    color:var(--forest-dark);
+    box-shadow:var(--shadow);
+  }
+  .dot-live{width:8px;height:8px;border-radius:50%;background:#3f9b5f;box-shadow:0 0 0 3px rgba(63,155,95,0.25);}
+  .hero h1{font-size:clamp(2.3rem, 5vw, 3.5rem);color:var(--forest-dark);margin-top:20px;}
+  .hero h1 em{font-style:normal;color:var(--rust);}
+  .hero p.lead{margin-top:20px;font-size:1.12rem;color:var(--ink-soft);max-width:46ch;}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px;}
+  .hero-stats{display:flex;gap:34px;margin-top:44px;}
+  .hero-stats div strong{display:block;font-family:'Fraunces',serif;font-size:1.5rem;color:var(--forest-dark);}
+  .hero-stats div span{font-size:0.82rem;color:var(--ink-soft);}
+
+  /* photo placeholder component */
+  .photo-slot{
+    position:relative;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:8px;
+    background:repeating-linear-gradient(135deg, #fff, #fff 10px, #f4ead6 10px, #f4ead6 20px);
+    border:2px dashed #cbb98f;
+    border-radius:var(--radius);
+    color:#9c8b68;
+    text-align:center;
+    padding:20px;
+    overflow:hidden;
+  }
+  .photo-slot svg{opacity:0.55;}
+  .photo-slot .ps-label{font-weight:700;font-size:0.85rem;letter-spacing:0.02em;}
+  .photo-slot .ps-sub{font-size:0.72rem;color:#b3a37c;}
+
+  .hero-photo{aspect-ratio:4/5;box-shadow:var(--shadow);}
+  .hero-photo-wrap{position:relative;}
+  .hero-badge{
+    position:absolute;left:-18px;bottom:-18px;
+    background:var(--rust);color:#fff;
+    padding:14px 20px;border-radius:14px;
+    box-shadow:0 14px 26px -10px rgba(193,98,60,0.6);
+    font-family:'Fraunces',serif;font-weight:600;font-size:0.95rem;
+    max-width:210px;
+  }
+  @media(max-width:520px){ .hero-badge{position:static;margin-top:14px;max-width:100%;} }
+
+  /* ---------- Section shared ---------- */
+  section{padding:88px 0;}
+  .section-head{max-width:640px;margin:0 auto 48px;text-align:center;}
+  .kicker{
+    display:block;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;
+    font-size:0.78rem;color:var(--rust);margin-bottom:12px;
+  }
+  .section-head h2{font-size:clamp(1.8rem,3.4vw,2.6rem);color:var(--forest-dark);}
+  .section-head p{margin-top:14px;color:var(--ink-soft);font-size:1.02rem;}
+
+  /* reveal on scroll */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1;transform:none;}
+
+  /* ---------- About ---------- */
+  .about{background:#fff;}
+  .about-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:56px;align-items:center;}
+  @media(max-width:900px){ .about-grid{grid-template-columns:1fr;} }
+  .about-photo{aspect-ratio:1/1;}
+  .about-copy .kicker{margin-bottom:10px;}
+  .about-copy h2{font-size:clamp(1.7rem,3vw,2.3rem);color:var(--forest-dark);margin-bottom:18px;}
+  .about-copy p{color:var(--ink-soft);font-size:1.04rem;margin:0 0 16px;}
+  .about-badges{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px;}
+  .about-badges span{
+    background:var(--cream-2);border:1px solid var(--line);
+    padding:9px 16px;border-radius:999px;font-size:0.85rem;font-weight:700;color:var(--forest-dark);
+  }
+
+  /* ---------- Products ---------- */
+  .products{background:var(--cream-2);}
+  .product-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:26px;}
+  .product-card{
+    background:#fff;border-radius:var(--radius);overflow:hidden;
+    box-shadow:var(--shadow);
+    transition:transform .25s ease, box-shadow .25s ease;
+    display:flex;flex-direction:column;
+  }
+  .product-card:hover{transform:translateY(-6px);box-shadow:0 22px 40px -16px rgba(43,36,28,0.3);}
+  .product-photo{aspect-ratio:4/3;border-radius:0;border-width:2px 0 2px 0;border-left:none;border-right:none;}
+  .product-body{padding:22px 22px 26px;display:flex;flex-direction:column;gap:10px;flex:1;}
+  .product-icon{
+    width:46px;height:46px;border-radius:12px;
+    background:var(--forest);color:var(--gold);
+    display:flex;align-items:center;justify-content:center;
+    margin-top:-46px;margin-left:18px;
+    box-shadow:0 8px 18px -6px rgba(38,74,61,0.55);
+    position:relative;z-index:2;
+  }
+  .product-body h3{font-size:1.18rem;color:var(--forest-dark);}
+  .product-body p{margin:0;color:var(--ink-soft);font-size:0.94rem;}
+
+  /* ---------- Gallery ---------- */
+  .gallery-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:16px;
+  }
+  .gallery-grid .photo-slot{aspect-ratio:1/1;}
+  .gallery-grid .photo-slot.tall{grid-row:span 2;aspect-ratio:auto;}
+  @media(max-width:760px){ .gallery-grid{grid-template-columns:repeat(2,1fr);} .gallery-grid .photo-slot.tall{grid-row:span 1;aspect-ratio:1/1;} }
+
+  /* ---------- Reviews / social ---------- */
+  .social-band{
+    background:var(--forest-dark);
+    color:#f4ecdb;
+  }
+  .social-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
+  @media(max-width:860px){ .social-grid{grid-template-columns:1fr;text-align:center;} }
+  .social-band .kicker{color:var(--gold);}
+  .social-band h2{color:#fff;font-size:clamp(1.7rem,3vw,2.3rem);}
+  .social-band p{color:#d9cdb2;font-size:1.02rem;margin-top:14px;max-width:48ch;}
+  .stars{display:flex;gap:4px;margin:18px 0 6px;}
+  @media(max-width:860px){ .stars{justify-content:center;} }
+  .fb-card{
+    background:#fff;color:var(--ink);
+    border-radius:var(--radius);
+    padding:30px;
+    box-shadow:0 26px 50px -20px rgba(0,0,0,0.45);
+  }
+  .fb-top{display:flex;align-items:center;gap:14px;margin-bottom:18px;}
+  .fb-avatar{
+    width:50px;height:50px;border-radius:50%;
+    background:linear-gradient(155deg, var(--forest), var(--forest-dark));
+    display:flex;align-items:center;justify-content:center;color:var(--gold);
+    font-family:'Fraunces',serif;font-weight:700;
+  }
+  .fb-name{font-weight:800;color:var(--forest-dark);}
+  .fb-sub{font-size:0.82rem;color:var(--ink-soft);}
+  .fb-stat-row{display:flex;gap:26px;margin-top:20px;padding-top:20px;border-top:1px solid var(--line);}
+  .fb-stat-row div strong{display:block;font-family:'Fraunces',serif;font-size:1.35rem;color:var(--forest-dark);}
+  .fb-stat-row div span{font-size:0.78rem;color:var(--ink-soft);}
+
+  /* ---------- Location / Contact ---------- */
+  .visit{background:#fff;}
+  .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);}
+  @media(max-width:900px){ .visit-grid{grid-template-columns:1fr;} }
+  .visit-info{background:var(--forest);color:#f4ecdb;padding:48px;display:flex;flex-direction:column;justify-content:center;gap:22px;}
+  .visit-info h2{color:#fff;font-size:clamp(1.6rem,3vw,2.1rem);}
+  .info-row{display:flex;gap:14px;align-items:flex-start;}
+  .info-row .ic{
+    flex:0 0 auto;width:38px;height:38px;border-radius:10px;
+    background:rgba(255,255,255,0.12);
+    display:flex;align-items:center;justify-content:center;color:var(--gold);
+  }
+  .info-row .label{font-size:0.75rem;text-transform:uppercase;letter-spacing:0.08em;color:#b9c9c0;margin-bottom:3px;}
+  .info-row a, .info-row div.val{color:#fff;font-weight:700;text-decoration:none;font-size:1.02rem;}
+  .info-row a:hover{color:var(--gold);}
+  .map-wrap{min-height:340px;}
+  .map-wrap iframe{width:100%;height:100%;min-height:340px;border:0;display:block;}
+
+  /* ---------- CTA strip ---------- */
+  .cta-strip{
+    background:linear-gradient(120deg, var(--rust), var(--rust-dark));
+    color:#fff;
+  }
+  .cta-strip .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;padding-top:56px;padding-bottom:56px;}
+  .cta-strip h2{color:#fff;font-size:clamp(1.5rem,2.8vw,2.1rem);}
+  .cta-strip p{margin-top:8px;color:#fbe3d4;}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--forest-dark);color:#cfd9d2;padding:56px 0 30px;}
+  .footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:40px;}
+  @media(max-width:760px){ .footer-grid{grid-template-columns:1fr;gap:32px;} }
+  .footer-brand{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+  footer h4{color:#fff;font-family:'Fraunces',serif;font-size:1rem;margin-bottom:16px;}
+  footer ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
+  footer a{color:#cfd9d2;text-decoration:none;font-size:0.92rem;}
+  footer a:hover{color:var(--gold);}
+  .footer-bottom{
+    margin-top:44px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.1);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
+    font-size:0.8rem;color:#94a39a;
+  }
+  .social-icons{display:flex;gap:10px;}
+  .social-icons a{
+    width:38px;height:38px;border-radius:50%;
+    background:rgba(255,255,255,0.08);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .social-icons a:hover{background:var(--rust);}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="brand">
+      <div class="brand-mark">M&amp;P</div>
+      <div class="brand-text">
+        <span class="name">Mimi &amp; Papa's</span>
+        <span class="loc">Gift Corner · Albert Lea</span>
+      </div>
+    </a>
+    <nav class="links">
+      <a href="#about">About</a>
+      <a href="#products">Shop</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#visit">Visit Us</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="call-pill" href="tel:+15076684023">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        (507) 668-4023
+      </a>
+      <a href="#visit" class="btn btn-primary">Visit the Shop</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow"><span class="dot-live"></span>Open Now · Albert Lea, MN</span>
+        <h1>Exclusively <em>Yours</em>,<br>Made Right Here in Town.</h1>
+        <p class="lead">Custom tee shirts, hats, jewelry, slate &amp; ceramic coasters, and airbrushed fishing lures — one-of-a-kind gifts, made your way at Mimi &amp; Papa's Gift Corner.</p>
+        <div class="hero-actions">
+          <a href="#products" class="btn btn-primary">Browse What We Make</a>
+          <a href="tel:+15076684023" class="btn btn-ghost">Call (507) 668-4023</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>203+</strong><span>Facebook followers</span></div>
+          <div><strong>5</strong><span>custom product lines</span></div>
+          <div><strong>114 S</strong><span>Broadway, Albert Lea</span></div>
+        </div>
+      </div>
+      <div class="hero-photo-wrap reveal">
+        <div class="photo-slot hero-photo" data-placeholder="hero-storefront">
+          <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 16l4.5-6 3 4 3-3L20 16"/><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8" cy="8.5" r="1.5"/></svg>
+          <span class="ps-label">Storefront / Hero Photo</span>
+          <span class="ps-sub">Add photo here</span>
+        </div>
+        <div class="hero-badge">"Exclusive customized items of your choosing." — straight from the shop</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="wrap about-grid">
+      <div class="photo-slot about-photo reveal" data-placeholder="about-inside-shop">
+        <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 16l4.5-6 3 4 3-3L20 16"/><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8" cy="8.5" r="1.5"/></svg>
+        <span class="ps-label">Inside the Shop</span>
+        <span class="ps-sub">Add photo here</span>
+      </div>
+      <div class="about-copy reveal">
+        <span class="kicker">Our Story</span>
+        <h2>A Family-Run Gift Shop with a Personal Touch</h2>
+        <p>Mimi &amp; Papa's Gift Corner is a proud local gift shop right on Broadway in Albert Lea, Minnesota. We specialize in exclusive, customized items of your choosing — because a gift means more when it's made just for the person you're giving it to.</p>
+        <p>From custom apparel to hand-finished coasters and airbrushed fishing gear, everything we offer can be personalized. Stop in, tell us your idea, and we'll help bring it to life.</p>
+        <div class="about-badges">
+          <span>Locally Owned</span>
+          <span>Custom Orders Welcome</span>
+          <span>Walk-Ins Welcome</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="products" id="products">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">What We Make</span>
+        <h2>Custom Gifts for Every Occasion</h2>
+        <p>Every item can be personalized — pick your design, colors, and wording, and we'll take care of the rest.</p>
+      </div>
+
+      <div class="product-grid">
+
+        <div class="product-card reveal">
+          <div class="photo-slot product-photo" data-placeholder="product-tees">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6l4-2 4 2 4-2 4 2-2 4-2-1v9H8v-9l-2 1-2-4z"/></svg>
+            <span class="ps-label">Custom Tee Shirts</span>
+            <span class="ps-sub">Add photo here</span>
+          </div>
+          <div class="product-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4-2 4 2 4-2 4 2-2 4-2-1v9H8v-9l-2 1-2-4z"/></svg>
+          </div>
+          <div class="product-body">
+            <h3>Custom Tee Shirts</h3>
+            <p>Personalized designs, names, and graphics printed on quality tees for every size and style.</p>
+          </div>
+        </div>
+
+        <div class="product-card reveal">
+          <div class="photo-slot product-photo" data-placeholder="product-hats">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 15c2-6 6-9 8-9s6 3 8 9"/><path d="M2 15h20"/><path d="M2 15c0 2 4 3 10 3s10-1 10-3"/></svg>
+            <span class="ps-label">Custom Hats</span>
+            <span class="ps-sub">Add photo here</span>
+          </div>
+          <div class="product-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15c2-6 6-9 8-9s6 3 8 9"/><path d="M2 15h20"/><path d="M2 15c0 2 4 3 10 3s10-1 10-3"/></svg>
+          </div>
+          <div class="product-body">
+            <h3>Custom Hats</h3>
+            <p>Embroidered or printed hats made your way — great for gifts, teams, and everyday wear.</p>
+          </div>
+        </div>
+
+        <div class="product-card reveal">
+          <div class="photo-slot product-photo" data-placeholder="product-jewelry">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3h12l4 6-10 12L2 9z"/><path d="M2 9h20M9 3l3 6-3 12M15 3l-3 6 3 12"/></svg>
+            <span class="ps-label">Jewelry</span>
+            <span class="ps-sub">Add photo here</span>
+          </div>
+          <div class="product-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12l4 6-10 12L2 9z"/></svg>
+          </div>
+          <div class="product-body">
+            <h3>Jewelry</h3>
+            <p>A curated selection of jewelry with custom options for that extra-special piece.</p>
+          </div>
+        </div>
+
+        <div class="product-card reveal">
+          <div class="photo-slot product-photo" data-placeholder="product-coasters">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg>
+            <span class="ps-label">Slate &amp; Ceramic Coasters</span>
+            <span class="ps-sub">Add photo here</span>
+          </div>
+          <div class="product-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <div class="product-body">
+            <h3>Slate &amp; Ceramic Coasters</h3>
+            <p>Custom engraved slate and hand-finished ceramic coaster sets — perfect housewarming gifts.</p>
+          </div>
+        </div>
+
+        <div class="product-card reveal">
+          <div class="photo-slot product-photo" data-placeholder="product-lures">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12c4-6 12-8 17-4-3 1-5 2-6 4 1 2 3 3 6 4-5 4-13 2-17-4z"/><circle cx="6.5" cy="12" r="1"/><path d="M3 12l-2 3M3 12l-2-3"/></svg>
+            <span class="ps-label">Airbrushed Fishing Lures</span>
+            <span class="ps-sub">Add photo here</span>
+          </div>
+          <div class="product-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12c4-6 12-8 17-4-3 1-5 2-6 4 1 2 3 3 6 4-5 4-13 2-17-4z"/></svg>
+          </div>
+          <div class="product-body">
+            <h3>Airbrushed Fishing Lures</h3>
+            <p>Hand airbrushed, one-of-a-kind lures plus a full lineup of other fishing gear.</p>
+          </div>
+        </div>
+
+        <div class="product-card reveal">
+          <div class="photo-slot product-photo" data-placeholder="product-more">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5z"/></svg>
+            <span class="ps-label">And So Much More</span>
+            <span class="ps-sub">Add photo here</span>
+          </div>
+          <div class="product-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5z"/></svg>
+          </div>
+          <div class="product-body">
+            <h3>Ask Us Anything</h3>
+            <p>Got an idea for a custom gift? Stop by or give us a call — if you can dream it, we'll help make it.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">Gallery</span>
+        <h2>See Our Work</h2>
+        <p>A look at custom pieces from around the shop — photos coming soon.</p>
+      </div>
+      <div class="gallery-grid">
+        <div class="photo-slot tall reveal" data-placeholder="gallery-1"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 16l4.5-6 3 4 3-3L20 16"/><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8" cy="8.5" r="1.5"/></svg><span class="ps-label">Add Photo</span></div>
+        <div class="photo-slot reveal" data-placeholder="gallery-2"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 16l4.5-6 3 4 3-3L20 16"/><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8" cy="8.5" r="1.5"/></svg><span class="ps-label">Add Photo</span></div>
+        <div class="photo-slot reveal" data-placeholder="gallery-3"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 16l4.5-6 3 4 3-3L20 16"/><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8" cy="8.5" r="1.5"/></svg><span class="ps-label">Add Photo</span></div>
+        <div class="photo-slot tall reveal" data-placeholder="gallery-4"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 16l4.5-6 3 4 3-3L20 16"/><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8" cy="8.5" r="1.5"/></svg><span class="ps-label">Add Photo</span></div>
+        <div class="photo-slot reveal" data-placeholder="gallery-5"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 16l4.5-6 3 4 3-3L20 16"/><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8" cy="8.5" r="1.5"/></svg><span class="ps-label">Add Photo</span></div>
+        <div class="photo-slot reveal" data-placeholder="gallery-6"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 16l4.5-6 3 4 3-3L20 16"/><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8" cy="8.5" r="1.5"/></svg><span class="ps-label">Add Photo</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL / REVIEWS -->
+  <section class="social-band">
+    <div class="wrap social-grid">
+      <div class="reveal">
+        <span class="kicker">Follow Along</span>
+        <h2>Join Our Growing Community</h2>
+        <div class="stars" aria-label="New shop, reviews coming soon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#d9a441"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21.1 7 14.2 2 9.3l6.9-1z"/></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#d9a441"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21.1 7 14.2 2 9.3l6.9-1z"/></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#d9a441"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21.1 7 14.2 2 9.3l6.9-1z"/></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d9a441" stroke-width="1.5"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21.1 7 14.2 2 9.3l6.9-1z"/></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d9a441" stroke-width="1.5"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21.1 7 14.2 2 9.3l6.9-1z"/></svg>
+        </div>
+        <p>We're a newer shop on Facebook and growing fast — 203 followers and counting. Give us a follow to see new custom work, drops, and shop updates first.</p>
+        <a href="https://www.facebook.com/profile.php?id=61582067914765" target="_blank" rel="noopener" class="btn btn-light" style="margin-top:22px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg>
+          Follow on Facebook
+        </a>
+      </div>
+      <div class="fb-card reveal">
+        <div class="fb-top">
+          <div class="fb-avatar">M&amp;P</div>
+          <div>
+            <div class="fb-name">Mimi &amp; Papa's Gift Corner</div>
+            <div class="fb-sub">Gift Shop · Albert Lea, MN</div>
+          </div>
+        </div>
+        <p style="color:var(--ink-soft);font-size:0.98rem;margin:0;">"Exclusive customized items of your choosing. Tee Shirts, Hats, Jewelry, Slate and Ceramic Coasters, Air Brushed Fishing Lures and lots of other fishing gear."</p>
+        <div class="fb-stat-row">
+          <div><strong>203</strong><span>Followers</span></div>
+          <div><strong>29</strong><span>Following</span></div>
+          <div><strong>1</strong><span>Review (Not yet rated)</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISIT / CONTACT -->
+  <section class="visit" id="visit">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">Visit Us</span>
+        <h2>Come See Us on Broadway</h2>
+        <p>Stop by the shop, give us a call, or send an email — we'd love to help you find (or make) the perfect gift.</p>
+      </div>
+
+      <div class="visit-grid reveal">
+        <div class="visit-info">
+          <h2>Get In Touch</h2>
+
+          <div class="info-row">
+            <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div>
+              <div class="label">Address</div>
+              <div class="val">114 S Broadway, Albert Lea, MN</div>
+            </div>
+          </div>
+
+          <div class="info-row">
+            <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div>
+              <div class="label">Phone</div>
+              <a href="tel:+15076684023">(507) 668-4023</a>
+            </div>
+          </div>
+
+          <div class="info-row">
+            <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg></div>
+            <div>
+              <div class="label">Email</div>
+              <a href="mailto:mimiandpapasgc@gmail.com">mimiandpapasgc@gmail.com</a>
+            </div>
+          </div>
+
+          <div class="info-row">
+            <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+            <div>
+              <div class="label">Hours</div>
+              <div class="val">Open Now · Call ahead for today's hours</div>
+            </div>
+          </div>
+
+          <a href="tel:+15076684023" class="btn btn-primary" style="width:fit-content;margin-top:6px;">Call the Shop</a>
+        </div>
+
+        <div class="map-wrap">
+          <iframe
+            title="Mimi & Papa's Gift Corner location map"
+            src="https://www.google.com/maps?q=114+S+Broadway,+Albert+Lea,+MN&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA STRIP -->
+  <section class="cta-strip">
+    <div class="wrap">
+      <div>
+        <h2>Have an idea for a custom gift?</h2>
+        <p>Come tell us about it — we love a good challenge.</p>
+      </div>
+      <a href="tel:+15076684023" class="btn btn-light">Call (507) 668-4023</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div>
+      <div class="footer-brand">
+        <div class="brand-mark" style="width:42px;height:42px;font-size:1.05rem;">M&amp;P</div>
+        <div class="brand-text">
+          <span class="name" style="color:#fff;">Mimi &amp; Papa's</span>
+          <span class="loc" style="color:#94a39a;">Gift Corner · Albert Lea</span>
+        </div>
+      </div>
+      <p style="max-width:32ch;font-size:0.9rem;color:#94a39a;">Exclusive customized gifts — tee shirts, hats, jewelry, coasters, and airbrushed fishing gear — made right here in Albert Lea, MN.</p>
+      <div class="social-icons" style="margin-top:18px;">
+        <a href="https://www.facebook.com/profile.php?id=61582067914765" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="#fff"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#products">What We Make</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#visit">Visit Us</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:+15076684023">(507) 668-4023</a></li>
+        <li><a href="mailto:mimiandpapasgc@gmail.com">mimiandpapasgc@gmail.com</a></li>
+        <li><a href="https://www.google.com/maps?q=114+S+Broadway,+Albert+Lea,+MN" target="_blank" rel="noopener">114 S Broadway, Albert Lea, MN</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>&copy; <span id="year"></span> Mimi &amp; Papa's Gift Corner. All rights reserved.</span>
+    <span>Made with care in Albert Lea, MN</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.14 });
+  revealEls.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
