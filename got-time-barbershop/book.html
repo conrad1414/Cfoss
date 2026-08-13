@@ -30,8 +30,10 @@
   "sameAs": ["https://www.facebook.com/profile.php?id=61567959867053"]
 }
 </script>
-<noscript><style>.reveal{opacity:1 !important;transform:none !important;}</style></noscript>
 <style>
+  @media (prefers-reduced-motion: no-preference){
+    @view-transition{ navigation:auto; }
+  }
   :root{
     --maroon:#3a0a10;
     --maroon-dark:#210509;
@@ -96,9 +98,15 @@
   }
 
   .stripe{
-    height:8px;
-    background:repeating-linear-gradient(135deg, var(--red) 0 14px, var(--white) 14px 28px, var(--navy) 28px 42px);
+    height:13px;
+    background-image:linear-gradient(135deg,
+      var(--red) 0 14px, var(--white) 14px 28px, var(--navy) 28px 42px);
+    background-size:42px 42px;
+    animation:stripe-move 1.6s linear infinite;
+    box-shadow:0 2px 6px rgba(0,0,0,0.2);
   }
+  @keyframes stripe-move{ from{background-position:42px 0;} to{background-position:0 0;} }
+  @media (prefers-reduced-motion: reduce){ .stripe{animation:none;} }
   .icon{width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}
 
   /* ---------- Header (shared) ---------- */
@@ -163,9 +171,7 @@
     width:64px;height:230px;border-radius:32px;
     background-image:repeating-linear-gradient(45deg,
       var(--red) 0 18px, var(--white) 18px 36px, var(--navy) 36px 54px);
-    background-size:76px 76px;
     box-shadow:inset 0 0 0 3px rgba(0,0,0,0.25), var(--shadow);
-    animation:pole-spin 1.6s linear infinite;
   }
   .barber-pole::before,.barber-pole::after{
     content:"";position:absolute;left:-6px;right:-6px;height:22px;
@@ -174,7 +180,6 @@
   }
   .barber-pole::before{top:-16px;}
   .barber-pole::after{bottom:-16px;}
-  @keyframes pole-spin{ from{background-position:0 0;} to{background-position:0 76px;} }
 
   .clock-rig{position:relative;width:150px;height:150px;flex-shrink:0;}
   .clock-face{
@@ -191,10 +196,8 @@
   }
   .clock-hub{position:absolute;left:50%;top:50%;width:10px;height:10px;margin:-5px;border-radius:50%;background:var(--gold);z-index:2;}
   .hand{position:absolute;left:50%;bottom:50%;transform-origin:50% 100%;background:var(--gold-soft);border-radius:3px;}
-  .hand-hour{width:5px;height:38px;margin-left:-2.5px;animation:rotate360 96s linear infinite;}
-  .hand-minute{width:3px;height:56px;margin-left:-1.5px;background:var(--cream);animation:rotate360-steps 8s steps(60,end) infinite;}
-  @keyframes rotate360{ to{ transform:rotate(360deg); } }
-  @keyframes rotate360-steps{ to{ transform:rotate(360deg); } }
+  .hand-hour{width:5px;height:38px;margin-left:-2.5px;transform:rotate(-60deg);}
+  .hand-minute{width:3px;height:56px;margin-left:-1.5px;background:var(--cream);transform:rotate(60deg);}
 
   /* ---------- Quick book cards ---------- */
   .quickbook-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
@@ -295,21 +298,14 @@
   .foot-social:hover{background:var(--gold);border-color:var(--gold);color:var(--maroon-dark);}
   .foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:22px;font-size:0.85rem;color:rgba(247,236,224,0.65);}
 
-  /* ---------- Scroll reveal ---------- */
-  .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease, transform .6s ease;}
-  .reveal.in-view{opacity:1;transform:translateY(0);}
-
   /* ---------- Sticky mobile CTA ---------- */
   .sticky-cta{
     display:none;position:fixed;left:0;right:0;bottom:0;z-index:70;
     background:var(--maroon-dark);border-top:1px solid rgba(242,183,5,0.3);
     padding:12px 16px calc(12px + env(safe-area-inset-bottom));
     gap:12px;
-    transform:translateY(100%);
-    animation:sticky-in .4s ease 0.6s forwards;
   }
   .sticky-cta .btn{flex:1;justify-content:center;padding:12px 16px;}
-  @keyframes sticky-in{ to{ transform:translateY(0); } }
 
   /* ---------- Responsive ---------- */
   @media (max-width: 880px){
@@ -338,8 +334,6 @@
     .book-hero-ctas .btn{width:100%;justify-content:center;}
   }
   @media (prefers-reduced-motion: reduce){
-    .barber-pole, .hand-hour, .hand-minute, .sticky-cta{animation:none !important;}
-    .reveal{opacity:1;transform:none;transition:none;}
     html{scroll-behavior:auto;}
   }
 </style>
@@ -413,27 +407,27 @@
 <!-- ================= QUICK BOOK ================= -->
 <section id="quick-book">
   <div class="wrap">
-    <div class="section-head reveal">
+    <div class="section-head">
       <p class="eyebrow">Pick your way in</p>
       <h2>Three ways to get in the chair</h2>
       <p>However you'd rather reach out, we'll get you sorted.</p>
     </div>
     <div class="quickbook-grid">
-      <a class="quickbook-card reveal" href="tel:+17152082543">
+      <a class="quickbook-card" href="tel:+17152082543">
         <span class="quickbook-icon">
           <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
         </span>
         <h3>Call or Text</h3>
         <p>(715) 208-2543 — the fastest way to grab a time or check on walk-ins.</p>
       </a>
-      <a class="quickbook-card reveal" href="https://www.facebook.com/profile.php?id=61567959867053" target="_blank" rel="noopener">
+      <a class="quickbook-card" href="https://www.facebook.com/profile.php?id=61567959867053" target="_blank" rel="noopener">
         <span class="quickbook-icon">
           <svg class="icon" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
         </span>
         <h3>Message on Facebook</h3>
         <p>Send us a message and we'll reply as soon as we can.</p>
       </a>
-      <a class="quickbook-card reveal" href="#request-form">
+      <a class="quickbook-card" href="#request-form">
         <span class="quickbook-icon">
           <svg class="icon" viewBox="0 0 24 24"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg>
         </span>
@@ -447,12 +441,12 @@
 <!-- ================= REQUEST FORM ================= -->
 <section id="request-form" class="band-maroon">
   <div class="wrap">
-    <div class="section-head reveal">
+    <div class="section-head">
       <p class="eyebrow" style="color:var(--gold-soft);">Request an appointment</p>
       <h2>Tell us when works for you</h2>
       <p class="ink-soft">This isn't instant booking — we'll follow up by phone or email to confirm your time.</p>
     </div>
-    <form class="form-shell reveal" id="bookingForm">
+    <form class="form-shell" id="bookingForm">
       <div class="form-grid">
         <div class="field">
           <label for="name">Name</label>
@@ -501,12 +495,12 @@
 <!-- ================= FAQ ================= -->
 <section id="faq">
   <div class="wrap">
-    <div class="section-head reveal">
+    <div class="section-head">
       <p class="eyebrow">Good to know</p>
       <h2>Questions before you come in</h2>
     </div>
     <div class="faq-list">
-      <div class="faq-item reveal">
+      <div class="faq-item">
         <button class="faq-question" aria-expanded="false">
           How do I book an appointment?
           <span class="plus"><svg class="icon" style="width:16px;height:16px;" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
@@ -515,7 +509,7 @@
           <p>Call or text (715) 208-2543, send a message on Facebook, or use the request form above and we'll follow up to confirm a time.</p>
         </div>
       </div>
-      <div class="faq-item reveal">
+      <div class="faq-item">
         <button class="faq-question" aria-expanded="false">
           Do you accept walk-ins?
           <span class="plus"><svg class="icon" style="width:16px;height:16px;" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
@@ -524,7 +518,7 @@
           <p>Give us a call before you head over and we'll let you know the best time to come in.</p>
         </div>
       </div>
-      <div class="faq-item reveal">
+      <div class="faq-item">
         <button class="faq-question" aria-expanded="false">
           What if I need to cancel or reschedule?
           <span class="plus"><svg class="icon" style="width:16px;height:16px;" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
@@ -533,7 +527,7 @@
           <p>No problem — just call or text as soon as you know, so we can free up the spot for someone else.</p>
         </div>
       </div>
-      <div class="faq-item reveal">
+      <div class="faq-item">
         <button class="faq-question" aria-expanded="false">
           What services do you offer?
           <span class="plus"><svg class="icon" style="width:16px;height:16px;" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
@@ -542,7 +536,7 @@
           <p>Classic haircuts, fades and tapers, hot towel shaves, beard trims and line-ups, plus cuts for kids and seniors. See the full list on the <a href="index.html#services" style="color:var(--red);text-decoration:underline;">services page</a>.</p>
         </div>
       </div>
-      <div class="faq-item reveal">
+      <div class="faq-item">
         <button class="faq-question" aria-expanded="false">
           What are your hours?
           <span class="plus"><svg class="icon" style="width:16px;height:16px;" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
@@ -558,7 +552,7 @@
 <!-- ================= VISIT RECAP ================= -->
 <section style="background:var(--cream-2);">
   <div class="wrap">
-    <div class="visit-recap reveal">
+    <div class="visit-recap">
       <div class="visit-recap-grid">
         <div class="visit-recap-item">
           <svg class="icon" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
@@ -641,25 +635,6 @@
       answer.style.maxHeight = !isOpen ? answer.scrollHeight + 'px' : null;
     });
   });
-
-  // Scroll reveal
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-    // Safety net: never leave content permanently hidden if the observer misses it
-    setTimeout(() => {
-      document.querySelectorAll('.reveal:not(.in-view)').forEach(el => el.classList.add('in-view'));
-    }, 2000);
-  } else {
-    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in-view'));
-  }
 
   // Booking form -> mailto
   const form = document.getElementById('bookingForm');

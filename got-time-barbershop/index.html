@@ -31,6 +31,9 @@
 }
 </script>
 <style>
+  @media (prefers-reduced-motion: no-preference){
+    @view-transition{ navigation:auto; }
+  }
   :root{
     --maroon:#3a0a10;
     --maroon-dark:#210509;
@@ -93,12 +96,15 @@
 
   /* ---------- Barber stripe accent ---------- */
   .stripe{
-    height:8px;
-    background:repeating-linear-gradient(135deg,
-      var(--red) 0 14px,
-      var(--white) 14px 28px,
-      var(--navy) 28px 42px);
+    height:13px;
+    background-image:linear-gradient(135deg,
+      var(--red) 0 14px, var(--white) 14px 28px, var(--navy) 28px 42px);
+    background-size:42px 42px;
+    animation:stripe-move 1.6s linear infinite;
+    box-shadow:0 2px 6px rgba(0,0,0,0.2);
   }
+  @keyframes stripe-move{ from{background-position:42px 0;} to{background-position:0 0;} }
+  @media (prefers-reduced-motion: reduce){ .stripe{animation:none;} }
 
   /* ---------- Icons ---------- */
   .icon{width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}
