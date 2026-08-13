@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Got Time Barbershop | Old School Barber in Ashland, WI</title>
+<meta name="description" content="Got Time Barbershop — old school barbering with over 20 years of professional experience. Haircuts, fades, hot towel shaves &amp; beard work at 712 Main Street East, Ashland, WI." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --maroon:#3a0a10;
+    --maroon-dark:#210509;
+    --maroon-light:#5c1622;
+    --gold:#f2b705;
+    --gold-soft:#ffd873;
+    --cream:#f7ece0;
+    --cream-2:#efe0cd;
+    --ink:#201412;
+    --ink-soft:#5a4741;
+    --red:#c8102e;
+    --navy:#152a52;
+    --white:#ffffff;
+    --line:#e3d1bd;
+    --radius:16px;
+    --shadow:0 14px 34px -14px rgba(32,20,18,0.35);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Manrope', sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.6;
+  }
+  h1,h2,h3,.display{
+    font-family:'Bebas Neue', sans-serif;
+    letter-spacing:0.02em;
+    line-height:1.05;
+    margin:0;
+  }
+  .eyebrow{
+    font-family:'Oswald', sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.18em;
+    font-size:0.8rem;
+    font-weight:600;
+    color:var(--red);
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 24px;}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:14px 28px;border-radius:999px;
+    font-family:'Oswald', sans-serif;
+    font-weight:600;font-size:1rem;letter-spacing:0.03em;text-transform:uppercase;
+    text-decoration:none;
+    transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+    border:2px solid transparent;
+    cursor:pointer;
+  }
+  .btn-primary{background:var(--gold);color:var(--maroon-dark);box-shadow:0 10px 24px -10px rgba(242,183,5,0.65);}
+  .btn-primary:hover{background:var(--gold-soft);transform:translateY(-2px);}
+  .btn-ghost{background:transparent;border-color:var(--cream);color:var(--cream);}
+  .btn-ghost:hover{background:var(--cream);color:var(--maroon-dark);transform:translateY(-2px);}
+  .btn-dark{background:var(--maroon);color:var(--cream);}
+  .btn-dark:hover{background:var(--maroon-dark);transform:translateY(-2px);}
+
+  /* ---------- Barber stripe accent ---------- */
+  .stripe{
+    height:8px;
+    background:repeating-linear-gradient(135deg,
+      var(--red) 0 14px,
+      var(--white) 14px 28px,
+      var(--navy) 28px 42px);
+  }
+
+  /* ---------- Icons ---------- */
+  .icon{width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}
+
+  /* ---------- Image placeholders ---------- */
+  .img-slot{
+    position:relative;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+    background:repeating-linear-gradient(45deg, var(--cream-2), var(--cream-2) 10px, #e7d6bf 10px, #e7d6bf 20px);
+    border:2px dashed var(--maroon-light);
+    border-radius:var(--radius);
+    color:var(--ink-soft);
+    text-align:center;
+    padding:20px;
+    overflow:hidden;
+  }
+  .img-slot .icon{width:34px;height:34px;color:var(--maroon-light);}
+  .img-slot .slot-label{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;font-size:0.85rem;}
+  .img-slot .slot-sub{font-size:0.78rem;color:var(--ink-soft);}
+  .img-slot.square{aspect-ratio:1/1;}
+  .img-slot.portrait{aspect-ratio:4/5;}
+  .img-slot.wide{aspect-ratio:16/10;}
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(58,10,16,0.95);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(242,183,5,0.25);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:16px;}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--cream);}
+  .brand-mark{
+    width:52px;height:52px;border-radius:50%;
+    flex-shrink:0;
+    background:var(--maroon-dark);
+    border:2px solid var(--gold);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--gold);
+  }
+  .brand-mark .icon{width:26px;height:26px;}
+  .brand-name{font-family:'Bebas Neue',sans-serif;font-size:1.35rem;letter-spacing:0.03em;line-height:1.1;}
+  .brand-name span{display:block;font-family:'Oswald',sans-serif;font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold-soft);font-weight:500;}
+  nav.links{display:flex;align-items:center;gap:28px;}
+  nav.links a{
+    text-decoration:none;color:var(--cream);
+    font-family:'Oswald',sans-serif;font-weight:500;font-size:0.92rem;
+    text-transform:uppercase;letter-spacing:0.05em;
+    opacity:0.88;
+    transition:opacity .15s ease, color .15s ease;
+  }
+  nav.links a:hover{opacity:1;color:var(--gold);}
+  .nav-actions{display:flex;align-items:center;gap:14px;}
+  .nav-toggle{display:none;background:none;border:2px solid var(--gold);border-radius:8px;padding:8px 10px;color:var(--gold);cursor:pointer;}
+  .nav-toggle .icon{width:22px;height:22px;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    background:
+      radial-gradient(circle at 85% 15%, rgba(242,183,5,0.14), transparent 45%),
+      linear-gradient(160deg, var(--maroon) 0%, var(--maroon-dark) 100%);
+    color:var(--cream);
+    padding:76px 0 64px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"XII   I   II   III   IIII   V   VI   VII   VIII   VIIII   X   XI";
+    position:absolute;
+    top:-10px;right:-40px;
+    font-family:'Oswald',sans-serif;
+    font-size:0.75rem;
+    letter-spacing:0.5em;
+    color:rgba(242,183,5,0.08);
+    white-space:nowrap;
+    transform:rotate(90deg);
+    transform-origin:right top;
+    pointer-events:none;
+  }
+  .hero-grid{display:grid;grid-template-columns:1.15fr 0.85fr;gap:52px;align-items:center;}
+  .hero .eyebrow{color:var(--gold-soft);}
+  .hero h1{font-size:clamp(2.6rem, 5.2vw, 4.4rem);margin:10px 0 18px;}
+  .hero h1 em{font-style:normal;color:var(--gold);}
+  .hero p.lede{font-size:1.15rem;color:var(--cream-2);max-width:52ch;margin-bottom:30px;}
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:34px;}
+  .hero-stats{display:flex;flex-wrap:wrap;gap:22px;}
+  .hero-stat{display:flex;align-items:center;gap:10px;font-family:'Oswald',sans-serif;font-size:0.9rem;text-transform:uppercase;letter-spacing:0.04em;color:var(--cream-2);}
+  .hero-stat .icon{width:20px;height:20px;color:var(--gold);}
+
+  /* ---------- Section shells ---------- */
+  section{padding:78px 0;}
+  .section-head{max-width:640px;margin:0 auto 44px;text-align:center;}
+  .section-head h2{font-size:clamp(2.1rem,3.6vw,2.9rem);margin-top:8px;}
+  .section-head p{color:var(--ink-soft);margin-top:12px;font-size:1.05rem;}
+  .band-maroon{background:var(--maroon);color:var(--cream);}
+  .band-maroon .ink-soft{color:var(--cream-2);}
+
+  /* ---------- About ---------- */
+  .about-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:56px;align-items:center;}
+  .about-grid h2{font-size:clamp(2.1rem,3.6vw,2.9rem);margin:8px 0 18px;}
+  .about-grid p{color:var(--ink-soft);margin-bottom:16px;font-size:1.05rem;}
+  .about-badges{display:flex;gap:16px;margin-top:26px;flex-wrap:wrap;}
+  .badge{
+    display:flex;align-items:center;gap:10px;
+    background:var(--white);border:1px solid var(--line);
+    border-radius:12px;padding:12px 16px;
+    font-family:'Oswald',sans-serif;font-size:0.88rem;font-weight:600;
+    box-shadow:var(--shadow);
+  }
+  .badge .icon{width:20px;height:20px;color:var(--red);}
+
+  /* ---------- Services ---------- */
+  .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .service-card{
+    background:var(--white);border:1px solid var(--line);
+    border-radius:var(--radius);padding:30px 26px;
+    box-shadow:var(--shadow);
+    color:var(--ink);
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .service-card:hover{transform:translateY(-4px);}
+  .service-icon{
+    width:52px;height:52px;border-radius:50%;
+    background:var(--maroon);color:var(--gold);
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:18px;
+  }
+  .service-card h3{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.03em;font-size:1.05rem;font-weight:700;margin-bottom:10px;color:var(--ink);}
+  .service-card p{color:var(--ink-soft);font-size:0.96rem;margin:0;}
+
+  /* ---------- Gallery ---------- */
+  .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+
+  /* ---------- Reviews ---------- */
+  .review-card{
+    background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+    padding:34px;box-shadow:var(--shadow);
+    max-width:560px;margin:0 auto;text-align:center;
+  }
+  .stars{display:flex;justify-content:center;gap:6px;margin-bottom:16px;color:var(--gold);}
+  .stars .icon{width:22px;height:22px;fill:var(--gold);stroke:var(--gold);}
+  .review-card p.lead{font-size:1.1rem;color:var(--ink-soft);margin-bottom:18px;}
+  .review-card .fb-link{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;font-size:0.88rem;
+    color:var(--navy);text-decoration:none;
+  }
+  .review-card .fb-link:hover{text-decoration:underline;}
+
+  /* ---------- Visit / Contact ---------- */
+  .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:stretch;}
+  .visit-card{background:var(--maroon-dark);border-radius:var(--radius);padding:40px;color:var(--cream);}
+  .visit-card h2{font-size:clamp(2rem,3.2vw,2.6rem);margin-bottom:22px;}
+  .contact-row{display:flex;align-items:flex-start;gap:14px;margin-bottom:20px;}
+  .contact-row .icon{width:22px;height:22px;color:var(--gold);margin-top:2px;}
+  .contact-row a, .contact-row span{font-family:'Oswald',sans-serif;font-size:1rem;text-decoration:none;color:var(--cream);}
+  .contact-row a:hover{color:var(--gold);}
+  .contact-row small{display:block;color:var(--cream-2);font-family:'Manrope',sans-serif;font-size:0.85rem;margin-top:2px;}
+  .map-frame{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);min-height:320px;}
+  .map-frame iframe{width:100%;height:100%;min-height:320px;border:0;display:block;}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--maroon-dark);color:var(--cream-2);padding:44px 0 26px;}
+  .foot-grid{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;padding-bottom:26px;border-bottom:1px solid rgba(247,236,224,0.14);}
+  .foot-brand{display:flex;align-items:center;gap:12px;}
+  .foot-social{
+    width:40px;height:40px;border-radius:50%;
+    border:1px solid rgba(247,236,224,0.3);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--cream);text-decoration:none;
+    transition:background .15s ease, border-color .15s ease;
+  }
+  .foot-social:hover{background:var(--gold);border-color:var(--gold);color:var(--maroon-dark);}
+  .foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:22px;font-size:0.85rem;color:rgba(247,236,224,0.65);}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 880px){
+    nav.links{
+      position:fixed;top:76px;left:0;right:0;
+      height:calc(100vh - 76px);
+      z-index:60;
+      background:var(--maroon-dark);
+      flex-direction:column;align-items:flex-start;
+      padding:26px 24px;gap:22px;
+      transform:translateX(100%);
+      transition:transform .25s ease;
+    }
+    nav.links.open{transform:translateX(0);}
+    .nav-toggle{display:flex;}
+    .hero-grid{grid-template-columns:1fr;}
+    .about-grid{grid-template-columns:1fr;}
+    .services-grid{grid-template-columns:repeat(2,1fr);}
+    .gallery-grid{grid-template-columns:repeat(2,1fr);}
+    .visit-grid{grid-template-columns:1fr;}
+  }
+  @media (max-width: 540px){
+    .services-grid{grid-template-columns:1fr;}
+    .hero-ctas .btn{width:100%;justify-content:center;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#home" class="brand">
+      <!-- IMAGE SLOT: logo — replace this div with
+           <img class="brand-mark" src="images/logo.jpg" alt="Got Time Barbershop logo" style="border-radius:50%;object-fit:cover;"> -->
+      <span class="brand-mark" aria-hidden="true">
+        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+      </span>
+      <span class="brand-name">GOT TIME<span>Barbershop</span></span>
+    </a>
+    <nav class="links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="tel:+17152082543" class="btn btn-primary" style="padding:10px 20px;">
+        <svg class="icon" style="width:18px;height:18px;" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        Call
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <svg class="icon" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="stripe"></div>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="home">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Ashland, Wisconsin</p>
+      <h1>Old school barbering.<br><em>Got time</em> for it done right.</h1>
+      <p class="lede">Over 20 years of professional barbering experience — classic cuts, sharp fades, and hot towel shaves at 712 Main Street East.</p>
+      <div class="hero-ctas">
+        <a href="tel:+17152082543" class="btn btn-primary">
+          <svg class="icon" style="width:18px;height:18px;" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          (715) 208-2543
+        </a>
+        <a href="#visit" class="btn btn-ghost">
+          <svg class="icon" style="width:18px;height:18px;" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          Get Directions
+        </a>
+      </div>
+      <div class="hero-stats">
+        <span class="hero-stat">
+          <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+          20+ Years Experience
+        </span>
+        <span class="hero-stat">
+          <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          Open Now
+        </span>
+        <span class="hero-stat">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          68 Facebook Followers
+        </span>
+      </div>
+    </div>
+    <div>
+      <!-- IMAGE SLOT: hero photo — swap for one of the 4 barbershop photos once you have them,
+           e.g. <img src="images/barbershop-1.jpg" alt="Got Time Barbershop haircut in progress" style="border-radius:16px;"> -->
+      <div class="img-slot portrait" style="background-color:rgba(247,236,224,0.06);border-color:var(--gold);color:var(--cream-2);">
+        <svg class="icon" style="color:var(--gold);" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+        <span class="slot-label">Hero Photo</span>
+        <span class="slot-sub">Drop in a shop or haircut photo</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about">
+  <div class="wrap about-grid">
+    <!-- IMAGE SLOT: about photo — replace with <img src="images/barbershop-2.jpg" alt="Barber at work at Got Time Barbershop"> -->
+    <div class="img-slot portrait">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+      <span class="slot-label">About Photo</span>
+      <span class="slot-sub">Barbershop photo goes here</span>
+    </div>
+    <div>
+      <p class="eyebrow">About the shop</p>
+      <h2>Twenty-plus years behind the chair.</h2>
+      <p>Got Time Barbershop is an old school barbershop in Ashland, Wisconsin, built on a simple idea: take the time to do a haircut right. With over 20 years of professional experience, every cut, fade, and shave gets the same attention to detail — no rushing, no shortcuts.</p>
+      <p>Stop in at 712 Main Street East for a classic barbershop experience, straight-razor sharp.</p>
+      <div class="about-badges">
+        <span class="badge">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          712 Main St E, Ashland, WI
+        </span>
+        <span class="badge">
+          <svg class="icon" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+          Price Range $$
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section id="services" class="band-maroon">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow" style="color:var(--gold-soft);">What we do</p>
+      <h2>Shave &amp; cuts, old school style</h2>
+      <p class="ink-soft">Classic barbering services for every guy in the chair.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-icon">
+          <svg class="icon" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><line x1="20" y1="4" x2="8.12" y2="15.88"></line><line x1="14.47" y1="14.48" x2="20" y2="20"></line><line x1="8.12" y1="8.12" x2="12" y2="12"></line></svg>
+        </span>
+        <h3>Classic Haircut</h3>
+        <p>Timeless cuts tailored to how you like to wear it, finished with a clean edge.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M20 7h-9"></path><path d="M14 17H5"></path><circle cx="17" cy="17" r="3"></circle><circle cx="7" cy="7" r="3"></circle></svg>
+        </span>
+        <h3>Fades &amp; Tapers</h3>
+        <p>Skin fades, tapers, and blends dialed in with old school precision.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg>
+        </span>
+        <h3>Hot Towel Shave</h3>
+        <p>A straight-razor hot towel shave for a smooth, relaxing, old school finish.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+        </span>
+        <h3>Beard Trim &amp; Line-Up</h3>
+        <p>Sharp lines and a well-groomed beard shape to match your cut.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        </span>
+        <h3>Kids Cuts</h3>
+        <p>Patient, friendly haircuts for the younger guys in the family.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">
+          <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+        </span>
+        <h3>Senior Cuts</h3>
+        <p>Comfortable, unhurried service for our longtime and senior regulars.</p>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:34px;font-family:'Oswald',sans-serif;color:var(--cream-2);font-size:0.92rem;">
+      Ask in-shop for current pricing and availability.
+    </p>
+  </div>
+</section>
+
+<!-- ================= GALLERY ================= -->
+<section id="gallery">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">In the chair</p>
+      <h2>A look inside the shop</h2>
+      <p>Photos from Got Time Barbershop — coming soon.</p>
+    </div>
+    <div class="gallery-grid">
+      <!-- IMAGE SLOT: gallery photo 1 — replace with <img src="images/barbershop-1.jpg" alt="Got Time Barbershop photo 1"> -->
+      <div class="img-slot portrait">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+        <span class="slot-label">Photo 1</span>
+      </div>
+      <!-- IMAGE SLOT: gallery photo 2 — replace with <img src="images/barbershop-2.jpg" alt="Got Time Barbershop photo 2"> -->
+      <div class="img-slot portrait">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+        <span class="slot-label">Photo 2</span>
+      </div>
+      <!-- IMAGE SLOT: gallery photo 3 — replace with <img src="images/barbershop-3.jpg" alt="Got Time Barbershop photo 3"> -->
+      <div class="img-slot portrait">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+        <span class="slot-label">Photo 3</span>
+      </div>
+      <!-- IMAGE SLOT: gallery photo 4 — replace with <img src="images/barbershop-4.jpg" alt="Got Time Barbershop photo 4"> -->
+      <div class="img-slot portrait">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+        <span class="slot-label">Photo 4</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= REVIEWS ================= -->
+<section id="reviews" style="background:var(--cream-2);">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">From our guests</p>
+      <h2>What people are saying</h2>
+    </div>
+    <div class="review-card">
+      <div class="stars">
+        <svg class="icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+        <svg class="icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+        <svg class="icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+      </div>
+      <p class="lead">Got Time Barbershop has 3 reviews on Facebook. Head over and see what folks in Ashland are saying — or leave one of your own.</p>
+      <a class="fb-link" href="https://www.facebook.com/profile.php?id=61567959867053&sk=reviews" target="_blank" rel="noopener">
+        <svg class="icon" style="width:18px;height:18px;color:var(--navy);" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+        View Reviews on Facebook
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VISIT ================= -->
+<section id="visit">
+  <div class="wrap visit-grid">
+    <div class="visit-card">
+      <p class="eyebrow" style="color:var(--gold-soft);">Come see us</p>
+      <h2>Visit Got Time Barbershop</h2>
+      <div class="contact-row">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+        <div>
+          <a href="https://www.google.com/maps/search/?api=1&query=712+Main+Street+East+Ashland+WI" target="_blank" rel="noopener">712 Main Street East<br>Ashland, WI</a>
+        </div>
+      </div>
+      <div class="contact-row">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        <div><a href="tel:+17152082543">(715) 208-2543</a></div>
+      </div>
+      <div class="contact-row">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+        <div><a href="mailto:gerald.denton74@gmail.com">gerald.denton74@gmail.com</a></div>
+      </div>
+      <div class="contact-row">
+        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        <div>
+          <span>Hours vary — give us a call</span>
+          <small>Ask about walk-ins and appointments</small>
+        </div>
+      </div>
+      <div class="contact-row">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+        <div><a href="https://www.facebook.com/profile.php?id=61567959867053" target="_blank" rel="noopener">Facebook: Got Time Barbershop</a></div>
+      </div>
+    </div>
+    <div class="map-frame">
+      <iframe
+        src="https://www.google.com/maps?q=712+Main+Street+East,+Ashland,+WI&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Map to Got Time Barbershop, 712 Main Street East, Ashland, WI"
+      ></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        </span>
+        <span class="brand-name">GOT TIME<span>Barbershop</span></span>
+      </div>
+      <a class="foot-social" href="https://www.facebook.com/profile.php?id=61567959867053" target="_blank" rel="noopener" aria-label="Got Time Barbershop on Facebook">
+        <svg class="icon" style="width:18px;height:18px;" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+      </a>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 Got Time Barbershop &middot; 712 Main Street East, Ashland, WI</span>
+      <span>(715) 208-2543 &middot; gerald.denton74@gmail.com</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => navLinks.classList.remove('open'));
+  });
+</script>
+
+</body>
+</html>
