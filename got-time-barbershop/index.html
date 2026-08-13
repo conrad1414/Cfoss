@@ -209,6 +209,11 @@
 
   /* ---------- Gallery ---------- */
   .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  .gallery-photo{
+    width:100%;aspect-ratio:4/5;object-fit:cover;
+    border-radius:var(--radius);box-shadow:var(--shadow);
+    border:1px solid var(--line);
+  }
 
   /* ---------- Reviews ---------- */
   .review-card{
@@ -444,29 +449,13 @@
     <div class="section-head">
       <p class="eyebrow">In the chair</p>
       <h2>A look inside the shop</h2>
-      <p>Photos from Got Time Barbershop — coming soon.</p>
+      <p>A few looks from behind the chair.</p>
     </div>
     <div class="gallery-grid">
-      <!-- IMAGE SLOT: gallery photo 1 — replace with <img src="images/barbershop-1.jpg" alt="Got Time Barbershop photo 1"> -->
-      <div class="img-slot portrait">
-        <svg class="icon" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
-        <span class="slot-label">Photo 1</span>
-      </div>
-      <!-- IMAGE SLOT: gallery photo 2 — replace with <img src="images/barbershop-2.jpg" alt="Got Time Barbershop photo 2"> -->
-      <div class="img-slot portrait">
-        <svg class="icon" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
-        <span class="slot-label">Photo 2</span>
-      </div>
-      <!-- IMAGE SLOT: gallery photo 3 — replace with <img src="images/barbershop-3.jpg" alt="Got Time Barbershop photo 3"> -->
-      <div class="img-slot portrait">
-        <svg class="icon" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
-        <span class="slot-label">Photo 3</span>
-      </div>
-      <!-- IMAGE SLOT: gallery photo 4 — replace with <img src="images/barbershop-4.jpg" alt="Got Time Barbershop photo 4"> -->
-      <div class="img-slot portrait">
-        <svg class="icon" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
-        <span class="slot-label">Photo 4</span>
-      </div>
+      <img class="gallery-photo" src="images/gallery-1.jpg" alt="Got Time Barbershop photo 1" />
+      <img class="gallery-photo" src="images/gallery-2.jpg" alt="Got Time Barbershop photo 2" />
+      <img class="gallery-photo" src="images/gallery-3.jpg" alt="Got Time Barbershop photo 3" />
+      <img class="gallery-photo" src="images/gallery-4.jpg" alt="Got Time Barbershop photo 4" />
     </div>
   </div>
 </section>
