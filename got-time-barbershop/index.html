@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<noscript><style>.reveal,.reveal-stagger>*{opacity:1 !important;transform:none !important;}.stars .icon{opacity:1 !important;transform:none !important;}</style></noscript>
 <style>
   :root{
     --maroon:#3a0a10;
@@ -71,34 +72,17 @@
 
   /* ---------- Barber stripe accent ---------- */
   .stripe{
-    height:8px;
-    background:repeating-linear-gradient(135deg,
-      var(--red) 0 14px,
-      var(--white) 14px 28px,
-      var(--navy) 28px 42px);
+    height:13px;
+    background-image:linear-gradient(135deg,
+      var(--red) 0 14px, var(--white) 14px 28px, var(--navy) 28px 42px);
+    background-size:42px 42px;
+    animation:stripe-move 1.6s linear infinite;
+    box-shadow:0 2px 6px rgba(0,0,0,0.2);
   }
+  @keyframes stripe-move{ from{background-position:42px 0;} to{background-position:0 0;} }
 
   /* ---------- Icons ---------- */
   .icon{width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}
-
-  /* ---------- Image placeholders ---------- */
-  .img-slot{
-    position:relative;
-    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
-    background:repeating-linear-gradient(45deg, var(--cream-2), var(--cream-2) 10px, #e7d6bf 10px, #e7d6bf 20px);
-    border:2px dashed var(--maroon-light);
-    border-radius:var(--radius);
-    color:var(--ink-soft);
-    text-align:center;
-    padding:20px;
-    overflow:hidden;
-  }
-  .img-slot .icon{width:34px;height:34px;color:var(--maroon-light);}
-  .img-slot .slot-label{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;font-size:0.85rem;}
-  .img-slot .slot-sub{font-size:0.78rem;color:var(--ink-soft);}
-  .img-slot.square{aspect-ratio:1/1;}
-  .img-slot.portrait{aspect-ratio:4/5;}
-  .img-slot.wide{aspect-ratio:16/10;}
 
   /* ---------- Header ---------- */
   header{
@@ -164,7 +148,64 @@
   .hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:34px;}
   .hero-stats{display:flex;flex-wrap:wrap;gap:22px;}
   .hero-stat{display:flex;align-items:center;gap:10px;font-family:'Oswald',sans-serif;font-size:0.9rem;text-transform:uppercase;letter-spacing:0.04em;color:var(--cream-2);}
-  .hero-stat .icon{width:20px;height:20px;color:var(--gold);}
+  .hero-stat .icon{width:20px;height:20px;color:var(--gold);animation:icon-pulse 2.4s ease-in-out infinite;}
+  .hero-stat:nth-child(2) .icon{animation-delay:.3s;}
+  .hero-stat:nth-child(3) .icon{animation-delay:.6s;}
+  @keyframes icon-pulse{ 0%,100%{transform:scale(1);} 50%{transform:scale(1.18);} }
+
+  /* Hero entrance animation */
+  @keyframes fade-up{ from{opacity:0;transform:translateY(26px);} to{opacity:1;transform:translateY(0);} }
+  @keyframes fade-in{ from{opacity:0;} to{opacity:1;} }
+  .hero-grid > div:first-child > *{opacity:0;animation:fade-up .7s ease forwards;}
+  .hero-grid .eyebrow{animation-delay:.05s;}
+  .hero-grid h1{animation-delay:.18s;}
+  .hero-grid p.lede{animation-delay:.34s;}
+  .hero-grid .hero-ctas{animation-delay:.48s;}
+  .hero-grid .hero-stats{animation-delay:.62s;}
+
+  /* Decorative rig: barber pole + ticking clock, replaces the old hero photo slot */
+  .hero-rig{
+    display:flex;align-items:center;justify-content:center;gap:30px;
+    opacity:0;animation:fade-in 1s ease .5s forwards;
+  }
+  .barber-pole{
+    position:relative;
+    width:60px;height:220px;border-radius:30px;
+    background-image:repeating-linear-gradient(45deg,
+      var(--red) 0 18px, var(--white) 18px 36px, var(--navy) 36px 54px);
+    background-size:76px 76px;
+    box-shadow:inset 0 0 0 3px rgba(0,0,0,0.25), var(--shadow);
+    animation:pole-spin 1.6s linear infinite, float-y 4s ease-in-out infinite;
+  }
+  .barber-pole::before,.barber-pole::after{
+    content:"";position:absolute;left:-6px;right:-6px;height:20px;
+    background:linear-gradient(180deg, var(--gold-soft), var(--gold));
+    border-radius:10px;box-shadow:0 2px 6px rgba(0,0,0,0.35);
+  }
+  .barber-pole::before{top:-14px;}
+  .barber-pole::after{bottom:-14px;}
+  @keyframes pole-spin{ from{background-position:0 0;} to{background-position:0 76px;} }
+  @keyframes float-y{ 0%,100%{transform:translateY(0);} 50%{transform:translateY(-8px);} }
+
+  .clock-rig{position:relative;width:140px;height:140px;flex-shrink:0;animation:float-y 4s ease-in-out infinite .3s;}
+  .clock-face{
+    width:100%;height:100%;border-radius:50%;
+    background:var(--maroon-dark);
+    border:3px solid var(--gold);
+    box-shadow:var(--shadow), inset 0 0 0 6px rgba(242,183,5,0.08);
+    position:relative;
+  }
+  .clock-face .tick{
+    position:absolute;left:50%;top:6px;width:2px;height:10px;margin-left:-1px;
+    background:var(--gold-soft);opacity:0.7;
+    transform-origin:1px 64px;
+  }
+  .clock-hub{position:absolute;left:50%;top:50%;width:10px;height:10px;margin:-5px;border-radius:50%;background:var(--gold);z-index:2;}
+  .hand{position:absolute;left:50%;bottom:50%;transform-origin:50% 100%;background:var(--gold-soft);border-radius:3px;}
+  .hand-hour{width:5px;height:34px;margin-left:-2.5px;animation:rotate360 90s linear infinite;}
+  .hand-minute{width:3px;height:50px;margin-left:-1.5px;background:var(--cream);animation:rotate360-steps 6s steps(60,end) infinite;}
+  @keyframes rotate360{ to{ transform:rotate(360deg); } }
+  @keyframes rotate360-steps{ to{ transform:rotate(360deg); } }
 
   /* ---------- Section shells ---------- */
   section{padding:78px 0;}
@@ -175,17 +216,19 @@
   .band-maroon .ink-soft{color:var(--cream-2);}
 
   /* ---------- About ---------- */
-  .about-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:56px;align-items:center;}
-  .about-grid h2{font-size:clamp(2.1rem,3.6vw,2.9rem);margin:8px 0 18px;}
-  .about-grid p{color:var(--ink-soft);margin-bottom:16px;font-size:1.05rem;}
-  .about-badges{display:flex;gap:16px;margin-top:26px;flex-wrap:wrap;}
+  .about-content{max-width:720px;margin:0 auto;text-align:center;}
+  .about-content h2{font-size:clamp(2.1rem,3.6vw,2.9rem);margin:8px 0 18px;}
+  .about-content p{color:var(--ink-soft);margin-bottom:16px;font-size:1.05rem;}
+  .about-badges{display:flex;gap:16px;margin-top:26px;flex-wrap:wrap;justify-content:center;}
   .badge{
     display:flex;align-items:center;gap:10px;
     background:var(--white);border:1px solid var(--line);
     border-radius:12px;padding:12px 16px;
     font-family:'Oswald',sans-serif;font-size:0.88rem;font-weight:600;
     box-shadow:var(--shadow);
+    transition:transform .2s ease;
   }
+  .badge:hover{transform:translateY(-3px) scale(1.03);}
   .badge .icon{width:20px;height:20px;color:var(--red);}
 
   /* ---------- Services ---------- */
@@ -195,25 +238,28 @@
     border-radius:var(--radius);padding:30px 26px;
     box-shadow:var(--shadow);
     color:var(--ink);
-    transition:transform .18s ease, box-shadow .18s ease;
+    transition:transform .25s ease, box-shadow .25s ease;
   }
-  .service-card:hover{transform:translateY(-4px);}
+  .service-card:hover{transform:translateY(-6px);box-shadow:0 20px 34px -14px rgba(0,0,0,0.4);}
   .service-icon{
     width:52px;height:52px;border-radius:50%;
     background:var(--maroon);color:var(--gold);
     display:flex;align-items:center;justify-content:center;
     margin-bottom:18px;
+    transition:transform .35s ease;
   }
+  .service-card:hover .service-icon{transform:scale(1.12) rotate(-8deg);}
   .service-card h3{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.03em;font-size:1.05rem;font-weight:700;margin-bottom:10px;color:var(--ink);}
   .service-card p{color:var(--ink-soft);font-size:0.96rem;margin:0;}
 
   /* ---------- Gallery ---------- */
   .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  .gallery-frame{border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid var(--line);overflow:hidden;}
   .gallery-photo{
-    width:100%;aspect-ratio:4/5;object-fit:cover;
-    border-radius:var(--radius);box-shadow:var(--shadow);
-    border:1px solid var(--line);
+    width:100%;aspect-ratio:4/5;object-fit:cover;display:block;
+    transition:transform .5s ease;
   }
+  .gallery-frame:hover .gallery-photo{transform:scale(1.08);}
 
   /* ---------- Reviews ---------- */
   .review-card{
@@ -222,7 +268,12 @@
     max-width:560px;margin:0 auto;text-align:center;
   }
   .stars{display:flex;justify-content:center;gap:6px;margin-bottom:16px;color:var(--gold);}
-  .stars .icon{width:22px;height:22px;fill:var(--gold);stroke:var(--gold);}
+  .stars .icon{width:22px;height:22px;fill:var(--gold);stroke:var(--gold);opacity:0;transform:scale(0.3) rotate(-25deg);}
+  .review-card.in-view .stars .icon{animation:star-pop .5s ease forwards;}
+  .review-card.in-view .stars .icon:nth-child(1){animation-delay:.15s;}
+  .review-card.in-view .stars .icon:nth-child(2){animation-delay:.28s;}
+  .review-card.in-view .stars .icon:nth-child(3){animation-delay:.41s;}
+  @keyframes star-pop{ to{opacity:1;transform:scale(1) rotate(0);} }
   .review-card p.lead{font-size:1.1rem;color:var(--ink-soft);margin-bottom:18px;}
   .review-card .fb-link{
     display:inline-flex;align-items:center;gap:8px;
@@ -257,6 +308,18 @@
   .foot-social:hover{background:var(--gold);border-color:var(--gold);color:var(--maroon-dark);}
   .foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:22px;font-size:0.85rem;color:rgba(247,236,224,0.65);}
 
+  /* ---------- Scroll reveal ---------- */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.16,.84,.44,1), transform .7s cubic-bezier(.16,.84,.44,1);}
+  .reveal.in-view{opacity:1;transform:translateY(0);}
+  .reveal-stagger > *{opacity:0;transform:translateY(24px);transition:opacity .6s ease, transform .6s ease;}
+  .reveal-stagger.in-view > *{opacity:1;transform:translateY(0);}
+  .reveal-stagger.in-view > *:nth-child(1){transition-delay:.05s;}
+  .reveal-stagger.in-view > *:nth-child(2){transition-delay:.13s;}
+  .reveal-stagger.in-view > *:nth-child(3){transition-delay:.21s;}
+  .reveal-stagger.in-view > *:nth-child(4){transition-delay:.29s;}
+  .reveal-stagger.in-view > *:nth-child(5){transition-delay:.37s;}
+  .reveal-stagger.in-view > *:nth-child(6){transition-delay:.45s;}
+
   /* ---------- Responsive ---------- */
   @media (max-width: 880px){
     nav.links{
@@ -272,7 +335,7 @@
     nav.links.open{transform:translateX(0);}
     .nav-toggle{display:flex;}
     .hero-grid{grid-template-columns:1fr;}
-    .about-grid{grid-template-columns:1fr;}
+    .hero-rig{margin-top:8px;}
     .services-grid{grid-template-columns:repeat(2,1fr);}
     .gallery-grid{grid-template-columns:repeat(2,1fr);}
     .visit-grid{grid-template-columns:1fr;}
@@ -280,6 +343,13 @@
   @media (max-width: 540px){
     .services-grid{grid-template-columns:1fr;}
     .hero-ctas .btn{width:100%;justify-content:center;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .stripe, .barber-pole, .clock-rig, .hand-hour, .hand-minute, .hero-stat .icon{animation:none !important;}
+    .hero-grid > div:first-child > *, .hero-rig{opacity:1;animation:none !important;transform:none !important;}
+    .reveal, .reveal-stagger > *{opacity:1;transform:none;transition:none;}
+    .stars .icon{opacity:1;transform:none;animation:none !important;}
+    html{scroll-behavior:auto;}
   }
 </style>
 </head>
@@ -345,13 +415,14 @@
         </span>
       </div>
     </div>
-    <div>
-      <!-- IMAGE SLOT: hero photo — swap for one of the 4 barbershop photos once you have them,
-           e.g. <img src="images/barbershop-1.jpg" alt="Got Time Barbershop haircut in progress" style="border-radius:16px;"> -->
-      <div class="img-slot portrait" style="background-color:rgba(247,236,224,0.06);border-color:var(--gold);color:var(--cream-2);">
-        <svg class="icon" style="color:var(--gold);" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
-        <span class="slot-label">Hero Photo</span>
-        <span class="slot-sub">Drop in a shop or haircut photo</span>
+    <div class="hero-rig" aria-hidden="true">
+      <div class="barber-pole"></div>
+      <div class="clock-rig">
+        <div class="clock-face" id="clockFace">
+          <div class="hand hand-hour"></div>
+          <div class="hand hand-minute"></div>
+          <div class="clock-hub"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -359,14 +430,8 @@
 
 <!-- ================= ABOUT ================= -->
 <section id="about">
-  <div class="wrap about-grid">
-    <!-- IMAGE SLOT: about photo — replace with <img src="images/barbershop-2.jpg" alt="Barber at work at Got Time Barbershop"> -->
-    <div class="img-slot portrait">
-      <svg class="icon" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
-      <span class="slot-label">About Photo</span>
-      <span class="slot-sub">Barbershop photo goes here</span>
-    </div>
-    <div>
+  <div class="wrap">
+    <div class="about-content reveal">
       <p class="eyebrow">About the shop</p>
       <h2>Twenty-plus years behind the chair.</h2>
       <p>Got Time Barbershop is an old school barbershop in Ashland, Wisconsin, built on a simple idea: take the time to do a haircut right. With over 20 years of professional experience, every cut, fade, and shave gets the same attention to detail — no rushing, no shortcuts.</p>
@@ -388,12 +453,12 @@
 <!-- ================= SERVICES ================= -->
 <section id="services" class="band-maroon">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
       <p class="eyebrow" style="color:var(--gold-soft);">What we do</p>
       <h2>Shave &amp; cuts, old school style</h2>
       <p class="ink-soft">Classic barbering services for every guy in the chair.</p>
     </div>
-    <div class="services-grid">
+    <div class="services-grid reveal-stagger">
       <div class="service-card">
         <span class="service-icon">
           <svg class="icon" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><line x1="20" y1="4" x2="8.12" y2="15.88"></line><line x1="14.47" y1="14.48" x2="20" y2="20"></line><line x1="8.12" y1="8.12" x2="12" y2="12"></line></svg>
@@ -446,16 +511,16 @@
 <!-- ================= GALLERY ================= -->
 <section id="gallery">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
       <p class="eyebrow">In the chair</p>
       <h2>A look inside the shop</h2>
       <p>A few looks from behind the chair.</p>
     </div>
-    <div class="gallery-grid">
-      <img class="gallery-photo" src="images/gallery-1.jpg" alt="Got Time Barbershop photo 1" />
-      <img class="gallery-photo" src="images/gallery-2.jpg" alt="Got Time Barbershop photo 2" />
-      <img class="gallery-photo" src="images/gallery-3.jpg" alt="Got Time Barbershop photo 3" />
-      <img class="gallery-photo" src="images/gallery-4.jpg" alt="Got Time Barbershop photo 4" />
+    <div class="gallery-grid reveal-stagger">
+      <div class="gallery-frame"><img class="gallery-photo" src="images/gallery-1.jpg" alt="Got Time Barbershop photo 1" /></div>
+      <div class="gallery-frame"><img class="gallery-photo" src="images/gallery-2.jpg" alt="Got Time Barbershop photo 2" /></div>
+      <div class="gallery-frame"><img class="gallery-photo" src="images/gallery-3.jpg" alt="Got Time Barbershop photo 3" /></div>
+      <div class="gallery-frame"><img class="gallery-photo" src="images/gallery-4.jpg" alt="Got Time Barbershop photo 4" /></div>
     </div>
   </div>
 </section>
@@ -463,11 +528,11 @@
 <!-- ================= REVIEWS ================= -->
 <section id="reviews" style="background:var(--cream-2);">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
       <p class="eyebrow">From our guests</p>
       <h2>What people are saying</h2>
     </div>
-    <div class="review-card">
+    <div class="review-card reveal">
       <div class="stars">
         <svg class="icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
         <svg class="icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
@@ -485,7 +550,7 @@
 <!-- ================= VISIT ================= -->
 <section id="visit">
   <div class="wrap visit-grid">
-    <div class="visit-card">
+    <div class="visit-card reveal">
       <p class="eyebrow" style="color:var(--gold-soft);">Come see us</p>
       <h2>Visit Got Time Barbershop</h2>
       <div class="contact-row">
@@ -514,7 +579,7 @@
         <div><a href="https://www.facebook.com/profile.php?id=61567959867053" target="_blank" rel="noopener">Facebook: Got Time Barbershop</a></div>
       </div>
     </div>
-    <div class="map-frame">
+    <div class="map-frame reveal" style="transition-delay:.12s;">
       <iframe
         src="https://www.google.com/maps?q=712+Main+Street+East,+Ashland,+WI&output=embed"
         loading="lazy"
@@ -552,6 +617,37 @@
   navLinks.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', () => navLinks.classList.remove('open'));
   });
+
+  // Clock face ticks
+  const clockFace = document.getElementById('clockFace');
+  if (clockFace) {
+    for (let i = 0; i < 12; i++) {
+      const tick = document.createElement('div');
+      tick.className = 'tick';
+      tick.style.transform = 'rotate(' + (i * 30) + 'deg)';
+      clockFace.appendChild(tick);
+    }
+  }
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal, .reveal-stagger');
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(el => observer.observe(el));
+    // Safety net: never leave content permanently hidden if the observer misses it
+    setTimeout(() => {
+      revealEls.forEach(el => el.classList.add('in-view'));
+    }, 2500);
+  } else {
+    revealEls.forEach(el => el.classList.add('in-view'));
+  }
 </script>
 
 </body>
