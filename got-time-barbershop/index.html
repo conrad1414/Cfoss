@@ -8,32 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<meta property="og:title" content="Got Time Barbershop | Old School Barber in Ashland, WI" />
-<meta property="og:description" content="Old school barbering with over 20 years of professional experience — haircuts, fades, hot towel shaves &amp; beard work at 712 Main Street East, Ashland, WI." />
-<meta property="og:type" content="website" />
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "HairSalon",
-  "name": "Got Time Barbershop",
-  "description": "Old school barbershop in Ashland, WI with over 20 years of professional barbering experience.",
-  "telephone": "+1-715-208-2543",
-  "email": "gerald.denton74@gmail.com",
-  "priceRange": "$$",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "712 Main Street East",
-    "addressLocality": "Ashland",
-    "addressRegion": "WI",
-    "addressCountry": "US"
-  },
-  "sameAs": ["https://www.facebook.com/profile.php?id=61567959867053"]
-}
-</script>
 <style>
-  @media (prefers-reduced-motion: no-preference){
-    @view-transition{ navigation:auto; }
-  }
   :root{
     --maroon:#3a0a10;
     --maroon-dark:#210509;
@@ -96,15 +71,12 @@
 
   /* ---------- Barber stripe accent ---------- */
   .stripe{
-    height:13px;
-    background-image:linear-gradient(135deg,
-      var(--red) 0 14px, var(--white) 14px 28px, var(--navy) 28px 42px);
-    background-size:42px 42px;
-    animation:stripe-move 1.6s linear infinite;
-    box-shadow:0 2px 6px rgba(0,0,0,0.2);
+    height:8px;
+    background:repeating-linear-gradient(135deg,
+      var(--red) 0 14px,
+      var(--white) 14px 28px,
+      var(--navy) 28px 42px);
   }
-  @keyframes stripe-move{ from{background-position:42px 0;} to{background-position:0 0;} }
-  @media (prefers-reduced-motion: reduce){ .stripe{animation:none;} }
 
   /* ---------- Icons ---------- */
   .icon{width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}
@@ -325,7 +297,6 @@
       <a href="#gallery">Gallery</a>
       <a href="#reviews">Reviews</a>
       <a href="#visit">Visit</a>
-      <a href="book.html">Book Now</a>
     </nav>
     <div class="nav-actions">
       <a href="tel:+17152082543" class="btn btn-primary" style="padding:10px 20px;">
