@@ -1,0 +1,691 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Book an Appointment | Got Time Barbershop</title>
+<meta name="description" content="Request an appointment at Got Time Barbershop in Ashland, WI. Call, message us on Facebook, or send a request — old school barbering, over 20 years of experience." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<meta property="og:title" content="Book an Appointment | Got Time Barbershop" />
+<meta property="og:description" content="Request an appointment at Got Time Barbershop in Ashland, WI — old school barbering, over 20 years of experience." />
+<meta property="og:type" content="website" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HairSalon",
+  "name": "Got Time Barbershop",
+  "description": "Old school barbershop in Ashland, WI with over 20 years of professional barbering experience.",
+  "telephone": "+1-715-208-2543",
+  "email": "gerald.denton74@gmail.com",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "712 Main Street East",
+    "addressLocality": "Ashland",
+    "addressRegion": "WI",
+    "addressCountry": "US"
+  },
+  "sameAs": ["https://www.facebook.com/profile.php?id=61567959867053"]
+}
+</script>
+<noscript><style>.reveal{opacity:1 !important;transform:none !important;}</style></noscript>
+<style>
+  :root{
+    --maroon:#3a0a10;
+    --maroon-dark:#210509;
+    --maroon-light:#5c1622;
+    --gold:#f2b705;
+    --gold-soft:#ffd873;
+    --cream:#f7ece0;
+    --cream-2:#efe0cd;
+    --ink:#201412;
+    --ink-soft:#5a4741;
+    --red:#c8102e;
+    --navy:#152a52;
+    --white:#ffffff;
+    --line:#e3d1bd;
+    --radius:16px;
+    --shadow:0 14px 34px -14px rgba(32,20,18,0.35);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Manrope', sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.6;
+  }
+  h1,h2,h3,.display{
+    font-family:'Bebas Neue', sans-serif;
+    letter-spacing:0.02em;
+    line-height:1.05;
+    margin:0;
+  }
+  .eyebrow{
+    font-family:'Oswald', sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.18em;
+    font-size:0.8rem;
+    font-weight:600;
+    color:var(--red);
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 24px;}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:14px 28px;border-radius:999px;
+    font-family:'Oswald', sans-serif;
+    font-weight:600;font-size:1rem;letter-spacing:0.03em;text-transform:uppercase;
+    text-decoration:none;
+    transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+    border:2px solid transparent;
+    cursor:pointer;
+  }
+  .btn-primary{background:var(--gold);color:var(--maroon-dark);box-shadow:0 10px 24px -10px rgba(242,183,5,0.65);}
+  .btn-primary:hover{background:var(--gold-soft);transform:translateY(-2px);}
+  .btn-ghost{background:transparent;border-color:var(--cream);color:var(--cream);}
+  .btn-ghost:hover{background:var(--cream);color:var(--maroon-dark);transform:translateY(-2px);}
+  .btn-dark{background:var(--maroon);color:var(--cream);}
+  .btn-dark:hover{background:var(--maroon-dark);transform:translateY(-2px);}
+  .btn:focus-visible, a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible{
+    outline:3px solid var(--gold-soft); outline-offset:2px;
+  }
+
+  .stripe{
+    height:8px;
+    background:repeating-linear-gradient(135deg, var(--red) 0 14px, var(--white) 14px 28px, var(--navy) 28px 42px);
+  }
+  .icon{width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}
+
+  /* ---------- Header (shared) ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(58,10,16,0.95);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(242,183,5,0.25);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:16px;}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--cream);}
+  .brand-mark{
+    width:52px;height:52px;border-radius:50%;flex-shrink:0;
+    background:var(--maroon-dark);border:2px solid var(--gold);
+    display:flex;align-items:center;justify-content:center;color:var(--gold);
+  }
+  .brand-mark .icon{width:26px;height:26px;}
+  .brand-name{font-family:'Bebas Neue',sans-serif;font-size:1.35rem;letter-spacing:0.03em;line-height:1.1;}
+  .brand-name span{display:block;font-family:'Oswald',sans-serif;font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold-soft);font-weight:500;}
+  nav.links{display:flex;align-items:center;gap:26px;}
+  nav.links a{
+    text-decoration:none;color:var(--cream);
+    font-family:'Oswald',sans-serif;font-weight:500;font-size:0.92rem;
+    text-transform:uppercase;letter-spacing:0.05em;opacity:0.88;
+    transition:opacity .15s ease, color .15s ease;
+  }
+  nav.links a:hover{opacity:1;color:var(--gold);}
+  nav.links a[aria-current="page"]{color:var(--gold);opacity:1;}
+  .nav-actions{display:flex;align-items:center;gap:14px;}
+  .nav-toggle{display:none;background:none;border:2px solid var(--gold);border-radius:8px;padding:8px 10px;color:var(--gold);cursor:pointer;}
+  .nav-toggle .icon{width:22px;height:22px;}
+
+  /* ---------- Section shells ---------- */
+  section{padding:78px 0;}
+  .section-head{max-width:640px;margin:0 auto 44px;text-align:center;}
+  .section-head h2{font-size:clamp(2.1rem,3.6vw,2.9rem);margin-top:8px;}
+  .section-head p{color:var(--ink-soft);margin-top:12px;font-size:1.05rem;}
+  .band-maroon{background:var(--maroon);color:var(--cream);}
+  .band-maroon .ink-soft{color:var(--cream-2);}
+
+  /* ---------- Booking hero ---------- */
+  .book-hero{
+    background:
+      radial-gradient(circle at 85% 10%, rgba(242,183,5,0.14), transparent 45%),
+      linear-gradient(160deg, var(--maroon) 0%, var(--maroon-dark) 100%);
+    color:var(--cream);
+    padding:72px 0 60px;
+    position:relative;
+    overflow:hidden;
+  }
+  .book-hero-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:52px;align-items:center;}
+  .book-hero .eyebrow{color:var(--gold-soft);}
+  .book-hero h1{font-size:clamp(2.5rem,5vw,4rem);margin:10px 0 18px;}
+  .book-hero h1 em{font-style:normal;color:var(--gold);}
+  .book-hero p.lede{font-size:1.12rem;color:var(--cream-2);max-width:50ch;margin-bottom:30px;}
+  .book-hero-ctas{display:flex;flex-wrap:wrap;gap:14px;}
+
+  /* Decorative rig: barber pole + ticking clock */
+  .hero-rig{display:flex;align-items:center;justify-content:center;gap:34px;}
+  .barber-pole{
+    position:relative;
+    width:64px;height:230px;border-radius:32px;
+    background-image:repeating-linear-gradient(45deg,
+      var(--red) 0 18px, var(--white) 18px 36px, var(--navy) 36px 54px);
+    background-size:76px 76px;
+    box-shadow:inset 0 0 0 3px rgba(0,0,0,0.25), var(--shadow);
+    animation:pole-spin 1.6s linear infinite;
+  }
+  .barber-pole::before,.barber-pole::after{
+    content:"";position:absolute;left:-6px;right:-6px;height:22px;
+    background:linear-gradient(180deg, var(--gold-soft), var(--gold));
+    border-radius:10px;box-shadow:0 2px 6px rgba(0,0,0,0.35);
+  }
+  .barber-pole::before{top:-16px;}
+  .barber-pole::after{bottom:-16px;}
+  @keyframes pole-spin{ from{background-position:0 0;} to{background-position:0 76px;} }
+
+  .clock-rig{position:relative;width:150px;height:150px;flex-shrink:0;}
+  .clock-face{
+    width:100%;height:100%;border-radius:50%;
+    background:var(--maroon-dark);
+    border:3px solid var(--gold);
+    box-shadow:var(--shadow), inset 0 0 0 6px rgba(242,183,5,0.08);
+    position:relative;
+  }
+  .clock-face .tick{
+    position:absolute;left:50%;top:6px;width:2px;height:10px;margin-left:-1px;
+    background:var(--gold-soft);opacity:0.7;
+    transform-origin:1px 69px;
+  }
+  .clock-hub{position:absolute;left:50%;top:50%;width:10px;height:10px;margin:-5px;border-radius:50%;background:var(--gold);z-index:2;}
+  .hand{position:absolute;left:50%;bottom:50%;transform-origin:50% 100%;background:var(--gold-soft);border-radius:3px;}
+  .hand-hour{width:5px;height:38px;margin-left:-2.5px;animation:rotate360 96s linear infinite;}
+  .hand-minute{width:3px;height:56px;margin-left:-1.5px;background:var(--cream);animation:rotate360-steps 8s steps(60,end) infinite;}
+  @keyframes rotate360{ to{ transform:rotate(360deg); } }
+  @keyframes rotate360-steps{ to{ transform:rotate(360deg); } }
+
+  /* ---------- Quick book cards ---------- */
+  .quickbook-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .quickbook-card{
+    background:var(--white);border:1px solid var(--line);
+    border-radius:var(--radius);padding:30px 26px;
+    box-shadow:var(--shadow);color:var(--ink);
+    text-decoration:none;display:block;
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .quickbook-card:hover{transform:translateY(-5px);}
+  .quickbook-icon{
+    width:54px;height:54px;border-radius:50%;
+    background:var(--maroon);color:var(--gold);
+    display:flex;align-items:center;justify-content:center;margin-bottom:18px;
+    transition:transform .3s ease;
+  }
+  .quickbook-card:hover .quickbook-icon{transform:scale(1.1) rotate(-6deg);}
+  .quickbook-card h3{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.03em;font-size:1.05rem;font-weight:700;margin-bottom:8px;color:var(--ink);}
+  .quickbook-card p{color:var(--ink-soft);font-size:0.95rem;margin:0;}
+
+  /* ---------- Request form ---------- */
+  .form-shell{
+    max-width:720px;margin:0 auto;
+    background:var(--white);border:1px solid var(--line);
+    border-radius:var(--radius);box-shadow:var(--shadow);
+    padding:40px;
+  }
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .field{display:flex;flex-direction:column;gap:8px;margin-bottom:20px;}
+  .field.full{grid-column:1 / -1;}
+  .field label{
+    font-family:'Oswald',sans-serif;font-size:0.82rem;font-weight:600;
+    text-transform:uppercase;letter-spacing:0.05em;color:var(--ink-soft);
+  }
+  .field input, .field select, .field textarea{
+    font-family:'Manrope',sans-serif;font-size:1rem;color:var(--ink);
+    border:1.5px solid var(--line);border-radius:10px;
+    padding:12px 14px;background:var(--cream);
+    transition:border-color .15s ease, background .15s ease;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{
+    border-color:var(--red);background:var(--white);outline:none;
+  }
+  .field textarea{resize:vertical;min-height:96px;}
+  .form-note{font-size:0.86rem;color:var(--ink-soft);margin-top:4px;}
+  .form-status{
+    display:none;margin-top:18px;padding:14px 18px;border-radius:10px;
+    background:#eef7ee;border:1px solid #bfe3bf;color:#245a24;
+    font-family:'Oswald',sans-serif;font-size:0.9rem;
+  }
+  .form-status.show{display:block;}
+
+  /* ---------- FAQ accordion ---------- */
+  .faq-list{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:14px;}
+  .faq-item{
+    background:var(--white);border:1px solid var(--line);border-radius:12px;
+    overflow:hidden;box-shadow:var(--shadow);
+  }
+  .faq-question{
+    width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;
+    padding:20px 22px;background:none;border:0;cursor:pointer;text-align:left;
+    font-family:'Oswald',sans-serif;font-weight:600;font-size:1.02rem;color:var(--ink);
+  }
+  .faq-question .plus{
+    flex-shrink:0;width:26px;height:26px;border-radius:50%;
+    background:var(--maroon);color:var(--gold);
+    display:flex;align-items:center;justify-content:center;
+    transition:transform .3s ease;
+  }
+  .faq-item.open .faq-question .plus{transform:rotate(135deg);}
+  .faq-answer{
+    max-height:0;overflow:hidden;
+    transition:max-height .35s ease, padding .35s ease;
+    padding:0 22px;
+  }
+  .faq-item.open .faq-answer{padding:0 22px 20px;}
+  .faq-answer p{margin:0;color:var(--ink-soft);font-size:0.98rem;}
+
+  /* ---------- Visit recap ---------- */
+  .visit-recap{background:var(--maroon-dark);border-radius:var(--radius);padding:36px;color:var(--cream);max-width:760px;margin:0 auto;}
+  .visit-recap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;text-align:center;}
+  .visit-recap-item .icon{color:var(--gold);margin:0 auto 10px;}
+  .visit-recap-item span{display:block;font-family:'Oswald',sans-serif;font-size:0.92rem;}
+  .visit-recap-item small{display:block;color:var(--cream-2);font-size:0.8rem;margin-top:4px;}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--maroon-dark);color:var(--cream-2);padding:44px 0 26px;}
+  .foot-grid{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;padding-bottom:26px;border-bottom:1px solid rgba(247,236,224,0.14);}
+  .foot-brand{display:flex;align-items:center;gap:12px;}
+  .foot-social{
+    width:40px;height:40px;border-radius:50%;
+    border:1px solid rgba(247,236,224,0.3);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--cream);text-decoration:none;
+    transition:background .15s ease, border-color .15s ease;
+  }
+  .foot-social:hover{background:var(--gold);border-color:var(--gold);color:var(--maroon-dark);}
+  .foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:22px;font-size:0.85rem;color:rgba(247,236,224,0.65);}
+
+  /* ---------- Scroll reveal ---------- */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in-view{opacity:1;transform:translateY(0);}
+
+  /* ---------- Sticky mobile CTA ---------- */
+  .sticky-cta{
+    display:none;position:fixed;left:0;right:0;bottom:0;z-index:70;
+    background:var(--maroon-dark);border-top:1px solid rgba(242,183,5,0.3);
+    padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+    gap:12px;
+    transform:translateY(100%);
+    animation:sticky-in .4s ease 0.6s forwards;
+  }
+  .sticky-cta .btn{flex:1;justify-content:center;padding:12px 16px;}
+  @keyframes sticky-in{ to{ transform:translateY(0); } }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 880px){
+    nav.links{
+      position:fixed;top:76px;left:0;right:0;
+      height:calc(100vh - 76px);
+      z-index:60;
+      background:var(--maroon-dark);
+      flex-direction:column;align-items:flex-start;
+      padding:26px 24px;gap:22px;
+      transform:translateX(100%);
+      transition:transform .25s ease;
+    }
+    nav.links.open{transform:translateX(0);}
+    .nav-toggle{display:flex;}
+    .book-hero-grid{grid-template-columns:1fr;}
+    .hero-rig{margin-top:10px;}
+    .quickbook-grid{grid-template-columns:1fr;}
+    .form-grid{grid-template-columns:1fr;}
+    .visit-recap-grid{grid-template-columns:1fr;}
+    .sticky-cta{display:flex;}
+    body{padding-bottom:78px;}
+  }
+  @media (max-width: 540px){
+    .form-shell{padding:26px;}
+    .book-hero-ctas .btn{width:100%;justify-content:center;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .barber-pole, .hand-hour, .hand-minute, .sticky-cta{animation:none !important;}
+    .reveal{opacity:1;transform:none;transition:none;}
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="brand">
+      <!-- IMAGE SLOT: logo — replace this div with
+           <img class="brand-mark" src="images/logo.jpg" alt="Got Time Barbershop logo" style="border-radius:50%;object-fit:cover;"> -->
+      <span class="brand-mark" aria-hidden="true">
+        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+      </span>
+      <span class="brand-name">GOT TIME<span>Barbershop</span></span>
+    </a>
+    <nav class="links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#gallery">Gallery</a>
+      <a href="index.html#reviews">Reviews</a>
+      <a href="index.html#visit">Visit</a>
+      <a href="book.html" aria-current="page">Book Now</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="tel:+17152082543" class="btn btn-primary" style="padding:10px 20px;">
+        <svg class="icon" style="width:18px;height:18px;" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        Call
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <svg class="icon" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="stripe"></div>
+
+<!-- ================= BOOK HERO ================= -->
+<section class="book-hero">
+  <div class="wrap book-hero-grid">
+    <div>
+      <p class="eyebrow">Ashland, Wisconsin</p>
+      <h1>Got time for<br><em>your next cut?</em></h1>
+      <p class="lede">Request an appointment below, call the shop directly, or send a message on Facebook — whatever's easiest for you.</p>
+      <div class="book-hero-ctas">
+        <a href="#request-form" class="btn btn-primary">
+          <svg class="icon" style="width:18px;height:18px;" viewBox="0 0 24 24"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M3 10h18"></path></svg>
+          Request an Appointment
+        </a>
+        <a href="tel:+17152082543" class="btn btn-ghost">
+          <svg class="icon" style="width:18px;height:18px;" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          (715) 208-2543
+        </a>
+      </div>
+    </div>
+    <div class="hero-rig" aria-hidden="true">
+      <div class="barber-pole"></div>
+      <div class="clock-rig">
+        <div class="clock-face" id="clockFace">
+          <div class="hand hand-hour"></div>
+          <div class="hand hand-minute"></div>
+          <div class="clock-hub"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= QUICK BOOK ================= -->
+<section id="quick-book">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Pick your way in</p>
+      <h2>Three ways to get in the chair</h2>
+      <p>However you'd rather reach out, we'll get you sorted.</p>
+    </div>
+    <div class="quickbook-grid">
+      <a class="quickbook-card reveal" href="tel:+17152082543">
+        <span class="quickbook-icon">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        </span>
+        <h3>Call or Text</h3>
+        <p>(715) 208-2543 — the fastest way to grab a time or check on walk-ins.</p>
+      </a>
+      <a class="quickbook-card reveal" href="https://www.facebook.com/profile.php?id=61567959867053" target="_blank" rel="noopener">
+        <span class="quickbook-icon">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+        </span>
+        <h3>Message on Facebook</h3>
+        <p>Send us a message and we'll reply as soon as we can.</p>
+      </a>
+      <a class="quickbook-card reveal" href="#request-form">
+        <span class="quickbook-icon">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg>
+        </span>
+        <h3>Request Online</h3>
+        <p>Fill out the form below with your info and preferred time.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= REQUEST FORM ================= -->
+<section id="request-form" class="band-maroon">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow" style="color:var(--gold-soft);">Request an appointment</p>
+      <h2>Tell us when works for you</h2>
+      <p class="ink-soft">This isn't instant booking — we'll follow up by phone or email to confirm your time.</p>
+    </div>
+    <form class="form-shell reveal" id="bookingForm">
+      <div class="form-grid">
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required autocomplete="name" />
+        </div>
+        <div class="field">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone" required autocomplete="tel" />
+        </div>
+        <div class="field">
+          <label for="service">Service</label>
+          <select id="service" name="service" required>
+            <option value="" disabled selected>Choose a service</option>
+            <option>Classic Haircut</option>
+            <option>Fade or Taper</option>
+            <option>Hot Towel Shave</option>
+            <option>Beard Trim &amp; Line-Up</option>
+            <option>Kids Cut</option>
+            <option>Senior Cut</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="day">Preferred Day</label>
+          <input type="date" id="day" name="day" />
+        </div>
+        <div class="field full">
+          <label for="time">Preferred Time</label>
+          <input type="text" id="time" name="time" placeholder="e.g. Afternoon, or around 2pm" />
+        </div>
+        <div class="field full">
+          <label for="notes">Notes</label>
+          <textarea id="notes" name="notes" placeholder="Anything else we should know?"></textarea>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">
+        <svg class="icon" style="width:18px;height:18px;" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+        Send Request
+      </button>
+      <p class="form-note">Submitting opens your email app with the details filled in, addressed to the shop. Prefer to skip that? Just call or text (715) 208-2543 instead.</p>
+      <p class="form-status" id="formStatus">Opening your email app with your request filled in — send it over and we'll be in touch to confirm.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Good to know</p>
+      <h2>Questions before you come in</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-question" aria-expanded="false">
+          How do I book an appointment?
+          <span class="plus"><svg class="icon" style="width:16px;height:16px;" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+        </button>
+        <div class="faq-answer">
+          <p>Call or text (715) 208-2543, send a message on Facebook, or use the request form above and we'll follow up to confirm a time.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question" aria-expanded="false">
+          Do you accept walk-ins?
+          <span class="plus"><svg class="icon" style="width:16px;height:16px;" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+        </button>
+        <div class="faq-answer">
+          <p>Give us a call before you head over and we'll let you know the best time to come in.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question" aria-expanded="false">
+          What if I need to cancel or reschedule?
+          <span class="plus"><svg class="icon" style="width:16px;height:16px;" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+        </button>
+        <div class="faq-answer">
+          <p>No problem — just call or text as soon as you know, so we can free up the spot for someone else.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question" aria-expanded="false">
+          What services do you offer?
+          <span class="plus"><svg class="icon" style="width:16px;height:16px;" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+        </button>
+        <div class="faq-answer">
+          <p>Classic haircuts, fades and tapers, hot towel shaves, beard trims and line-ups, plus cuts for kids and seniors. See the full list on the <a href="index.html#services" style="color:var(--red);text-decoration:underline;">services page</a>.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question" aria-expanded="false">
+          What are your hours?
+          <span class="plus"><svg class="icon" style="width:16px;height:16px;" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+        </button>
+        <div class="faq-answer">
+          <p>Hours can vary, so it's best to call ahead at (715) 208-2543 to confirm before you stop in.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VISIT RECAP ================= -->
+<section style="background:var(--cream-2);">
+  <div class="wrap">
+    <div class="visit-recap reveal">
+      <div class="visit-recap-grid">
+        <div class="visit-recap-item">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          <span>712 Main St E</span>
+          <small>Ashland, WI</small>
+        </div>
+        <div class="visit-recap-item">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          <span>(715) 208-2543</span>
+          <small>Call or text</small>
+        </div>
+        <div class="visit-recap-item">
+          <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <span>Hours vary</span>
+          <small>Call ahead to confirm</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        </span>
+        <span class="brand-name">GOT TIME<span>Barbershop</span></span>
+      </div>
+      <a class="foot-social" href="https://www.facebook.com/profile.php?id=61567959867053" target="_blank" rel="noopener" aria-label="Got Time Barbershop on Facebook">
+        <svg class="icon" style="width:18px;height:18px;" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+      </a>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 Got Time Barbershop &middot; 712 Main Street East, Ashland, WI</span>
+      <span>(715) 208-2543 &middot; gerald.denton74@gmail.com</span>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta" role="region" aria-label="Quick actions">
+  <a href="tel:+17152082543" class="btn btn-primary">Call</a>
+  <a href="#request-form" class="btn btn-ghost" style="border-color:var(--gold);color:var(--gold);">Request</a>
+</div>
+
+<script>
+  // Clock face ticks
+  const clockFace = document.getElementById('clockFace');
+  for (let i = 0; i < 12; i++) {
+    const tick = document.createElement('div');
+    tick.className = 'tick';
+    tick.style.transform = 'rotate(' + (i * 30) + 'deg)';
+    clockFace.appendChild(tick);
+  }
+
+  // Mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => navLinks.classList.remove('open'));
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const question = item.querySelector('.faq-question');
+    const answer = item.querySelector('.faq-answer');
+    question.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(open => {
+        if (open !== item) {
+          open.classList.remove('open');
+          open.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+          open.querySelector('.faq-answer').style.maxHeight = null;
+        }
+      });
+      item.classList.toggle('open', !isOpen);
+      question.setAttribute('aria-expanded', String(!isOpen));
+      answer.style.maxHeight = !isOpen ? answer.scrollHeight + 'px' : null;
+    });
+  });
+
+  // Scroll reveal
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    // Safety net: never leave content permanently hidden if the observer misses it
+    setTimeout(() => {
+      document.querySelectorAll('.reveal:not(.in-view)').forEach(el => el.classList.add('in-view'));
+    }, 2000);
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in-view'));
+  }
+
+  // Booking form -> mailto
+  const form = document.getElementById('bookingForm');
+  const status = document.getElementById('formStatus');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const name = data.get('name') || '';
+    const phone = data.get('phone') || '';
+    const service = data.get('service') || '';
+    const day = data.get('day') || '';
+    const time = data.get('time') || '';
+    const notes = data.get('notes') || '';
+    const subject = 'Appointment Request - ' + name;
+    const body =
+      'Name: ' + name + '\n' +
+      'Phone: ' + phone + '\n' +
+      'Service: ' + service + '\n' +
+      'Preferred Day: ' + day + '\n' +
+      'Preferred Time: ' + time + '\n' +
+      'Notes: ' + notes;
+    const mailto = 'mailto:gerald.denton74@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    window.location.href = mailto;
+    status.classList.add('show');
+  });
+</script>
+
+</body>
+</html>
